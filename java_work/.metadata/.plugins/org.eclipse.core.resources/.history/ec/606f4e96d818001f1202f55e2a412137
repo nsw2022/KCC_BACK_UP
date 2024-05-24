@@ -1,0 +1,36 @@
+package kosa.basic;
+
+import java.util.Scanner;
+
+public class VariableExam2 {
+	public static void main(String[] args) {
+		// 키보드로 부터 데이터 입력
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("정수 입력 : ");
+//		int num = Integer.parseInt(sc.nextLine());
+		//int num = sc.nextInt();// 10 + enter로 다음문자열 입력 방지
+		//sc.nextLine();
+	
+//		System.out.print("문자열 입력: ");
+//		String str = sc.nextLine();
+//		
+//		System.out.println(num);
+//		System.out.println(str);
+	
+		// int <==> char
+		char ch ='A';
+		//System.out.println( (int)ch );
+		
+		for (int i = 65; i < 91; i++) {
+			System.out.print((char)i);
+		}
+		
+		sc.close();
+	
+	}
+}
+
+
+
+

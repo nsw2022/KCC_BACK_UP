@@ -1,0 +1,17 @@
+package kosa.mission;
+
+import java.util.Scanner;
+
+public class Mission02 {
+
+	public static void main(String[] args) {
+		// 성적관리 구현
+		// 국어, 영어, 수학 점수를 키보드로 부터 입력 받고
+		// 총점과 평균을 출력하세요.
+		Scanner sc = new Scanner(System.in);
+		System.out.println("국어점수를 입력해주세요");
+		
+		sc.close();
+	}
+
+}

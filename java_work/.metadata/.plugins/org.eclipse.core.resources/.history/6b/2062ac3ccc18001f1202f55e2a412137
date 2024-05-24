@@ -1,0 +1,9 @@
+package kosa.basic;
+
+public class VariableExam {
+	public static void main(String[] args) {
+		int num; // 변수 선언: 메모리 할당
+		
+		
+	}
+}

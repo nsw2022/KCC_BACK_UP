@@ -1,0 +1,7 @@
+package kosa.basic;
+
+public class VariableExam {
+	public static void main(String[] args) {
+		int num;
+	}
+}

@@ -1,0 +1,12 @@
+package kosa.basic;
+
+public class VariableExam {
+	public static void main(String[] args) {
+		// 변수는 데이터를 담는 그릇 ex)홍길동 100 3.14 Ture
+		// byte, short, int, long, float, double : 기본자료형 실제값을 다룸
+		// String : 참조자료형 객체를 참조하여 할당스 
+		int num; // 변수 선언: 메모리 할당
+		int arr[];// 배열 선언 : Object Type
+		
+	}
+}

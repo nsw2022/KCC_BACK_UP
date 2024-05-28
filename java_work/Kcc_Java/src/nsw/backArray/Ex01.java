@@ -1,5 +1,7 @@
 package nsw.backArray;
 
+import java.util.Scanner;
+
 public class Ex01 {
 
 	public static void main(String[] args) {
@@ -11,7 +13,13 @@ public class Ex01 {
 //		  - 입력된 정수의 총 합
 //
 //		단, 반드시 입력을 완료한 상태에서 '최대값'과 '최소값' 그리고 '총합'을 계산해야 한다.
-
+		Scanner sc = new Scanner(System.in);
+		
+		int[] arr = new int[5];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i]=sc.nextInt();
+		}
+		
 	}
 
 }

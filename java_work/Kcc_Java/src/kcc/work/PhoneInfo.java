@@ -10,12 +10,6 @@ public class PhoneInfo {
 
 	
 
-	public PhoneInfo(String name, String phoneNo, String birth) {
-		super();
-		this.name = name;
-		this.phoneNo = phoneNo;
-		this.birth = birth;
-	}
 
 
 

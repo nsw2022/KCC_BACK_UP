@@ -1,4 +1,4 @@
-package kcc.work;
+package kosa.phone;
 
 public class PhoneInfo {
 	
@@ -8,15 +8,9 @@ public class PhoneInfo {
 	// 생성자
 	public PhoneInfo() {}
 
-	
-
-
-
-
 	//메서드 영역
 	// 추가
 	public void addPhoneInfo(String name, String phoneNo, String birth) {
-		
 		this.name = name;
 		this.phoneNo = phoneNo;
 		this.birth = birth;

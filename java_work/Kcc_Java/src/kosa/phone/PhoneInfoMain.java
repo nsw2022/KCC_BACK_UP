@@ -1,4 +1,4 @@
-package kcc.work;
+package kosa.phone;
 
 import java.util.Scanner;
 

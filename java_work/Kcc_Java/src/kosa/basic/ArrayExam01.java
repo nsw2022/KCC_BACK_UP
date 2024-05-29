@@ -71,7 +71,7 @@ public class ArrayExam01 {
 		for (int i = 0; i < count; i++) {
 			System.out.print(sArr[i]+", ");
 		}
-		
+		sc.close();
 		
 	}
 

@@ -5,13 +5,7 @@ public class Member {
 	// 惑怕, 青悼 备己
 	String userId, userName;
 	int userAge, kor, eng, mat;
-	
-	@Override
-	public String toString() {
 		
-		return super.toString();
-	}
-	
 	public Member() {
 		this("00", "包府磊", 100);
 	}

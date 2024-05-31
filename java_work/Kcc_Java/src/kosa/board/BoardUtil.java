@@ -1,13 +1,13 @@
 package kosa.board;
 
-import java.time.LocalDate;
+
 import java.util.Scanner;
 
 public class BoardUtil {
 	// "1.게시글 작성 2.게시판 목록보기 3.게시판 자세히 보기 4.검색 5.삭제 6.종료";
 
 	private int bNum, bCnt, count;
-	private LocalDate bDate = LocalDate.now();
+	
 	private Scanner sc;
 	private Board[] boardArr;
 	int[] testCnt;

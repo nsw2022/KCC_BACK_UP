@@ -15,9 +15,9 @@ public class AccountMain {
 		} catch (Exception e) {			
 			e.printStackTrace();
 		}
-		System.out.println("°èÁÂ¹øÈ£: " + account.accountNo);
-		System.out.println("°èÁÂÁÖ: " + account.ownerName);
-		System.out.println("ÀÜ¾×: " + account.balance);
+		System.out.println("°èÁÂ¹øÈ£: " + account.getAccountNo());
+		System.out.println("°èÁÂÁÖ: " + account.getOwnerName());
+		System.out.println("ÀÜ¾×: " + account.getBalance());
 
 	}
 

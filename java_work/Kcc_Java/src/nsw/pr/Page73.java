@@ -26,7 +26,7 @@ public class Page73 {
 			System.out.println("출력 문자열: " + data);
 			System.out.println();
 		}
-		
+		sc.close();
 		System.out.println("종료");
 	}
 

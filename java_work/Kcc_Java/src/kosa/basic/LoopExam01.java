@@ -84,7 +84,7 @@ public class LoopExam01 {
 //		
 //		System.out.println("a="+a+ " b="+b+ " c="+c);
 		
-
+		sc.close();
 	}
 
 }

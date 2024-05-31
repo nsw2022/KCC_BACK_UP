@@ -6,14 +6,14 @@ public class Main {
 		Video v2 = new Video("2","ÄôÇªÆÒ´õ","Áö¼º¹Î");
 		
 		GeneralMember g1 = new GeneralMember("aaa", "È«±æµ¿", "µ¿Åº");
-		GeneralMember g2 = new GeneralMember("bbb", "±èÃ¶¼ö", "¼­¿ï");
+		SpecialMember s2 = new SpecialMember("bbb", "±èÃ¶¼ö", "¼­¿ï");
 	
 		g1.resgistVideo(v1);
-		g2.resgistVideo(v2);
+		s2.resgistVideo(v2);
 	
 		g1.showUser();
 		System.out.println("===============================");
-		g2.showUser();
+		s2.showUser();
 		
 	}
 }

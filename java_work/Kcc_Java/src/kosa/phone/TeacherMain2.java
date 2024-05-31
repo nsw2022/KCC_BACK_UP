@@ -1,11 +1,11 @@
 package kosa.phone;
 
 
-public class TeacherMain {
+public class TeacherMain2 {
 	
 	public static void main(String[] args) {
 		//Scanner sc = new Scanner(System.in);
-		
+
 		TeacherManager tm = new TeacherManager(); 
 		
 		while(true) {

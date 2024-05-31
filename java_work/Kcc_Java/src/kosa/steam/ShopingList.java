@@ -1,7 +1,5 @@
 package kosa.steam;
 
-import java.util.Arrays;
-
 public class ShopingList {
 	private GameList[] gameLists ;
 	private int allPrice;

@@ -13,9 +13,9 @@ public class Main {
 	
 		
 	 // 메뉴 아이템 생성
-    Appetizer appetizer = new Appetizer("갈릭 브레드", "마늘과 버터가 들어간 브레드", 10_000, 250,true);
-    MainCoures mainCourse = new MainCoures("스테이크",  "고급 육즙이 풍부한 스테이크", 10_000, false);
-    Dessert dessert = new Dessert("치즈 케이크",  "크리미한 치즈와 바삭한 바닥이 매력적인 케이크", 450, false);
+    Appetizer appetizer = new Appetizer("갈릭 브레드", "마늘과 버터가 들어간 브레드", 10_000, 490,true);
+    MainCoures mainCourse = new MainCoures("스테이크",  "고급 육즙이 풍부한 스테이크", 10_000, 270,false);
+    Dessert dessert = new Dessert("치즈 케이크",  "크리미한 치즈와 바삭한 바닥이 매력적인 케이크",45_000, 321, false);
 
 	 // 주문 객체 생성
     Order order = new Order();

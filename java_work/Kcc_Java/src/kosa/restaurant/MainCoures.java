@@ -3,8 +3,8 @@ package kosa.restaurant;
 public class MainCoures extends MenuItem {
 	private boolean glutenFree;
 	
-	public MainCoures(String name,  String description, int price, boolean glutenFree) {
-		super(name, description, price);
+	public MainCoures(String name,  String description, int price, int calories,boolean glutenFree) {
+		super(name, description, price, calories);
         this.glutenFree = glutenFree;
     }
 

@@ -6,8 +6,8 @@ public class Appetizer extends MenuItem{
 	
 	
 	public Appetizer(String name, String description, int price, int calories, boolean vegetarian) {
-		super(name, description, price);
-		this.calories = calories;
+		super(name, description, price, calories);
+		
 		this.vegetarian = vegetarian;
 	}
 

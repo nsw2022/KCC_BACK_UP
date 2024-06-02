@@ -45,6 +45,7 @@ public class Order {
 	        } while (!choice.equals("7"));
 	}
 
+	// 검색 메서드
 	public void selectMenu(String menuType) {
 	        do {
 	        	System.out.println(menuType + " 메뉴입니다. 비건 메뉴가 필요하신가요? (예/아니오)");
@@ -57,7 +58,8 @@ public class Order {
 	            boolean vegan = isVegan.equals("예");
 	            int startIndex = vegan ? 0 : 5;
 	            int endIndex = vegan ? 4 : 9;
-
+	            
+	            // 오직 출력용도 getMenu(인덱스번호, 메뉴타입)
 	            for (int i = startIndex; i <= endIndex; i++) {
 	                MenuItem item = getMenu(i, menuType);
 	                if (item != null) {
@@ -67,17 +69,24 @@ public class Order {
 	            }
 
 	            System.out.print("선택하고 싶은 메뉴 번호를 입력하세요: ");
-	            int selectedIndex = Integer.parseInt(DataInput.sc.nextLine()) - 1;
-	            if (selectedIndex >= 0 && selectedIndex <= 4) {
-	                addItem(getMenu(selectedIndex + startIndex, menuType));
-	                System.out.println("메뉴가 주문에 추가되었습니다.");
-	            } else {
-	                System.out.println("잘못된 번호입니다.");
-	            }
+	            // 사용자한테 1번부터 보여주고 -1해서 인덱스 번호를 맞춤
+	            	try {
+	            		int selectedIndex = Integer.parseInt(DataInput.sc.nextLine()) - 1;
+	    	            if (selectedIndex >= 0 && selectedIndex <= 4) {
+	    	            	// 비건이면 startIndex의 값은 0 아니면 5
+	    	            	// selectedIndex 는 현재요소가 보여지는건 1번이지만 실제론 0번요소라서 빼줌
+	    	                addItem(getMenu(selectedIndex + startIndex, menuType));
+	    	                System.out.println("메뉴가 주문에 추가되었습니다.");
+	    	            }						
+					} catch (Exception e) {
+						System.out.println("잘못된 번호입니다.");
+					}
+	            
 	            
 	            System.out.println("계속해서 " + menuType + " 메뉴를 보시겠습니까? (예/아니오)");
 	        } while(DataInput.sc.nextLine().equals("예"));
 	    }
+	
 	// 메뉴 항목을 반환하는 메소드
 	public MenuItem getMenu(int index, String menuType) {
 		// 메뉴 항목이 담긴 배열에 따라 인덱스로 항목을 반환

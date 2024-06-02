@@ -10,7 +10,8 @@ public class Main {
 	Order 클래스를 만들고, 
 	MenuItem 객체의 목록을 저장하고, 주문 추가, 삭제, 결제 기능, 총매출 합계등을 제공합니다. 
  * */
-	/*	
+	
+		
 	 // 메뉴 아이템 생성
     Appetizer appetizer = new Appetizer("갈릭 브레드", "마늘과 버터가 들어간 브레드", 10_000, 250,true);
     MainCoures mainCourse = new MainCoures("스테이크",  "고급 육즙이 풍부한 스테이크", 10_000, false);
@@ -34,7 +35,11 @@ public class Main {
 
     // 주문 결제
     System.out.println("\n주문을 결제합니다.");
-    */
+    order.payOrder();
+    order.displayOrder();
+    
+    
+		/*
 	Order order = new Order();
 	System.out.println("레스토랑에 오실걸 환영합니다.");
 	System.out.println("다양한 음식을 원하시는거에 맞게 골라주세요");
@@ -43,8 +48,7 @@ public class Main {
 		String menuItem = DataInput.sc.nextLine();
 		switch (menuItem) {
 		case "1":
-			System.out.println("귀하는 채식주의자인가요?: ");
-			String check = DataInput.sc.nextLine();
+
 			//order.addItem(new Appetizer(name, description, price, calories, order.checdkedType(check)));
 			break;
 			
@@ -59,6 +63,7 @@ public class Main {
 			break;
 		}
 	}
+	*/
 		
 	}
 }

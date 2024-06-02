@@ -14,6 +14,8 @@ public class Order {
 
 	// 메뉴 아이템 추가 메소드
 	public void addItem(MenuItem item) {
+//		System.out.println("귀하는 채식주의자인가요?: ");
+//		String check = DataInput.sc.nextLine();
 		if (count < items.length) { // 배열이 가득 차지 않았는지 확인
 			items[count++] = item; // 아이템을 배열에 추가하고 카운트 증가
 		} else {
@@ -54,6 +56,13 @@ public class Order {
 			System.out.println((i + 1) + ". " + items[i].getName() + " - $" + items[i].getPrice());
 		}
 	}
+	
+	// 주문 결제 및 목록 초기화 메소드
+    public void payOrder() {
+        System.out.println("결제되었습니다. 총 금액: $" + getTotalPrice());
+        items = new MenuItem[10]; // 주문 목록을 새로 초기화
+        count = 0;
+    }
 
 	
 

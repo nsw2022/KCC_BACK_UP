@@ -2,7 +2,8 @@ package kosa.restaurant;
 
 public class Order {
 	private MenuItem items[] = new MenuItem[10];
-	private int count;
+	private int count = 0;
+	private int payAll = 0;
 
 	public Order() {
 		System.out.println("레스토랑에 오신걸 환영합니다!");
@@ -221,8 +222,9 @@ public class Order {
 	// 주문 결제 및 목록 초기화 메소드
 	public void payOrder() {
 		if (getTotalPrice()==0) System.out.println("아직 주문 안하셧는뎅 ㅠㅜ");
-		
+		payAll += getTotalPrice();
 		System.out.println("결제되었습니다. 총 금액: $" + getTotalPrice());
+		System.out.println("가계 총 매출 : $"+ payAll);
 		items = new MenuItem[10]; // 주문 목록을 새로 초기화
 		count = 0;
 	}
@@ -242,5 +244,5 @@ public class Order {
 	public void setCount(int count) {
 		this.count = count;
 	}
-
+	
 }

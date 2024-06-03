@@ -17,9 +17,6 @@ public class MenuItem {
 		this.price = price;
 		this.calories = calories;
 	}
-	
-
-	
 
 	public String getName() {
 		return name;

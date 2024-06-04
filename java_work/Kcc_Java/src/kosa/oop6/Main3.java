@@ -30,12 +30,8 @@ public class Main3 {
 		
 		
 		//3. 인스턴스 참조
-		
-		
 		AA a4=BB::new;
 		a4.abc();
-		
-		
 		
 		
 	}

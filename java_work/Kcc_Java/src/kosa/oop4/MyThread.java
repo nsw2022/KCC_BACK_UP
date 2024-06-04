@@ -1,4 +1,4 @@
-package kosa.opp4;
+package kosa.oop4;
 
 public class MyThread implements Runnable{
 

@@ -1,4 +1,4 @@
-package kosa.opp4;
+package kosa.oop4;
 
 import java.awt.Button;
 import java.awt.Frame;

@@ -7,7 +7,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Scanner;
 
-public class DataExam {
+public class DataMyMisson{
 	
 	public static void main(String[] args) {
 		// 키보드 => 날짜 입력 2014/06/04
@@ -47,6 +47,7 @@ public class DataExam {
 				date.getDayOfMonth(),0,0,0);
 		
 		long remainDay = startDateTime.until(endDataTime, ChronoUnit.DAYS);
+		
 		return remainDay;
 	}
 

@@ -2,34 +2,23 @@ package kosa.subject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Main2 {
 
+	public static void main(String[] args) {
+		Map<String, ArrayList<String>> userHobbies = new HashMap<>();
 
-	  public static void main(String[] args) {
-	        Map<String, List<String>> multiValueMap = new HashMap<>();
+		// 사용자 'John'의 취미 목록을 초기화하고, 'Fishing'을 추가합니다.
+		userHobbies.computeIfAbsent("John", k -> new ArrayList<>()).add("Fishing");
 
-	        // 값을 추가하는 함수
-	        addValueToMap(multiValueMap, "FPS", "헬다이버즈");
-	        addValueToMap(multiValueMap, "FPS", "GTFO");
-	        addValueToMap(multiValueMap, "FPS", "래프트4데드");
-	        addValueToMap(multiValueMap, "Horror", "파스모포비아");
-	        addValueToMap(multiValueMap, "Horror", "DEVOUR");
+		// 'John'의 취미 목록에 'Hiking'을 추가합니다. 이때 'John'은 이미 존재하므로 새로운 ArrayList를 생성하지 않습니다.
+		userHobbies.computeIfAbsent("John", k -> new ArrayList<>()).add("Hiking");
 
-	        // 출력
-	        for (Map.Entry<String, List<String>> entry : multiValueMap.entrySet()) {
-	            System.out.println(entry.getKey() + " : " + entry.getValue());
-	        }
-	    }
-
-	    private static void addValueToMap(Map<String, List<String>> map, String key, String value) {
-	        if (!map.containsKey(key)) {
-	            map.put(key, new ArrayList<>());
-	        }
-	        map.get(key).add(value);
-	    }
-
+		// 결과 출력
+		System.out.println(userHobbies);
+	}
 
 }

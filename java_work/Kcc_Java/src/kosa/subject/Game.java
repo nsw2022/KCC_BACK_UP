@@ -6,8 +6,6 @@ public class Game {
 	
 	public Game() {}
 
-	
-
 	public Game(String gameName, String gameInfo,  int gamePrice) {
 		super();
 		this.gameName = gameName;

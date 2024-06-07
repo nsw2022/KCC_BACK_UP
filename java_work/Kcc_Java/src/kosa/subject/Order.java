@@ -8,6 +8,12 @@ import java.util.TreeMap;
 public class Order {
 	private LinkedHashMap<String, ArrayList<Category>> orderMap = new LinkedHashMap<>();
 
+	// computeIfAbsent 설명 -> 
+	// https://hbase.tistory.com/53 
+	
+	// 유용한 map정리 -> 
+	// https://codingnojam.tistory.com/39
+	// compute -> 키값이 없으면 null 반환 map.compute("키값" ,(key, oldValue) -> oldValue == null ? 0 : oldValue + 1)
 	public void addOrder(String customerName, Category category) {
 		orderMap.computeIfAbsent(customerName, k -> new ArrayList<>()).add(category);
 	}
@@ -16,8 +22,6 @@ public class Order {
 		// 초기 데이터 설정
 		initializeOrders();
 	}
-	
-	
 
 	public Order(LinkedHashMap<String, ArrayList<Category>> orderMap) {
 		super();

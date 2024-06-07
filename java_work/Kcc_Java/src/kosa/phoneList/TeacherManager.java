@@ -1,6 +1,8 @@
 package kosa.phoneList;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -183,6 +185,66 @@ public class TeacherManager {
 		
 
 	}
+
+
+    public void sortedPhoneInfo() {
+    	System.out.print("1.이름  2.생일  3. 폰번호");
+    	String userInput = DataInput.sc.nextLine();
+    	System.out.print("1.내림 2.올림");
+    	String userSort = DataInput.sc.nextLine();
+    	switch (userInput) {
+		case "1":
+			Collections.sort(arr, new Comparator<TeacherPhone>() {
+	            @Override
+	            public int compare(TeacherPhone o1, TeacherPhone o2) {
+	            	if (userSort.equals("1")) {
+	            		return o1.getName().compareTo(o2.getName());
+						
+					}else {
+						return -1;
+					}
+	            }
+	        });
+			break;
+		case "2":
+			Collections.sort(arr, new Comparator<TeacherPhone>() {
+				@Override
+				public int compare(TeacherPhone o1, TeacherPhone o2) {
+					if (userSort.equals("1")) {
+						return o1.getBirth().compareTo(o2.getBirth());
+						
+					}else {
+						return -1;
+					}
+				}
+			});
+			break;
+
+		default:
+			break;
+		}
+        
+        
+    }
+
+	
+
+	public List<TeacherPhone> getArr() {
+		return arr;
+	}
+
+	public void setArr(List<TeacherPhone> arr) {
+		this.arr = arr;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
 	
 
 }

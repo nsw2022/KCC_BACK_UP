@@ -1,6 +1,7 @@
 package kosa.subject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.TreeMap;
 
 public class Category {
@@ -24,10 +25,26 @@ public class Category {
 		return games;
 	}
 	
+	
 
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+	
+	 
+	
 	@Override
 	public String toString() {
-		return "Category [genre=" + genre + ", games=" + games + "]";
+//		String arr_toString = Arrays.to(games);
+//		String repl = arr_toString.replaceAll("\\[","").replaceAll("\\]","");
+		
+		String listToString = games.toString();
+        String withoutBrackets = listToString.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll(",", "");
+		return genre+"\n" + withoutBrackets;
 	}
 
 	public void addPlayer(Game game) {

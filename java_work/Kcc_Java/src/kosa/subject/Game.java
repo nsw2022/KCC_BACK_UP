@@ -39,7 +39,8 @@ public class Game {
 
 	@Override
 	public String toString() {
-		return "Game [gameName=" + gameName + ", gameInfo=" + gameInfo + ", gamePrice=" + gamePrice + "]";
+		
+		return "\n타이틀: "+ gameName+"\n"+"정보:" +gameInfo+"\n" +"가격:" +gamePrice+"\n";
 	}
 	
 	

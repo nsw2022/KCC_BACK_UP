@@ -13,6 +13,8 @@ public class Category {
 	public Category(String genre) {
 		this.genre = genre;
 	}
+	
+	// 카테고리별 목록보기
 
 	public void addGame(Game game) {
 		games.add(game);
@@ -27,6 +29,13 @@ public class Category {
 	public String toString() {
 		return "Category [genre=" + genre + ", games=" + games + "]";
 	}
+
+	public void addPlayer(Game game) {
+		games.add(game);
+		
+	}
+
+	
 	
 
 }

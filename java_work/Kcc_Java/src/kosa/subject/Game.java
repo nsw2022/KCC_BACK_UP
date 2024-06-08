@@ -10,7 +10,6 @@ public class Game {
 		super();
 		this.gameName = gameName;
 		this.gameInfo = gameInfo;
-		
 		this.gamePrice = gamePrice;
 	}
 
@@ -37,8 +36,6 @@ public class Game {
 	public void setGamePrice(int gamePrice) {
 		this.gamePrice = gamePrice;
 	}
-
-
 
 	@Override
 	public String toString() {

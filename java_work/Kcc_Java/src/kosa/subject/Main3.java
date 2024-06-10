@@ -22,7 +22,7 @@ public class Main3 {
 
 		while (true) {
 
-			System.out.println("1.아이디 입력하기 2.전체 게임 목록 보기");
+			System.out.println("1.아이디 입력하기 2.전체 게임 목록 보기  3.최저가격순보기");
 			System.out.print("입력: ");
 			String menu = DataInput.sc.nextLine();
 
@@ -37,6 +37,10 @@ public class Main3 {
 			case "2":
 				mall.printOrders();
 				break;
+			case "3":
+				mall.lowerPrintOrders();
+				break;
+			
 		
 
 			default:

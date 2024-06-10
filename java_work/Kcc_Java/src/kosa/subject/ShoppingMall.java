@@ -1,10 +1,15 @@
 package kosa.subject;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ShoppingMall {
 	private Map<String, ArrayList<Order>> orderList = new HashMap<>(); // 사용자별 주문 목록
@@ -12,7 +17,6 @@ public class ShoppingMall {
 	private Person person;
 	private Order order = new Order();
 	private ArrayList<Game> addUserGame = new ArrayList<Game>();
-	
 
 	public ShoppingMall() {
 		this.orderList = new HashMap<>();
@@ -24,7 +28,7 @@ public class ShoppingMall {
 
 		while (true) {
 
-			System.out.println("1.게임 목록보기 2.장바구니에 담기 3.내주문보기 4.주문삭제하기 5.이전화면");
+			System.out.println("1.게임 목록보기 2.장바구니에 담기 3.내주문보기 4.주문삭제하기  5.결제 6.이전화면");
 			System.out.print("입력 : ");
 			String menu = DataInput.sc.nextLine();
 			switch (menu) {
@@ -55,24 +59,24 @@ public class ShoppingMall {
 					for (Category category : categories) {
 
 						for (Game game : category.getGames()) {
-							if(game.getGameName().equals(addGame)) {
-								//System.out.println("이벤트 테스트");
+							if (game.getGameName().equals(addGame)) {
+								// System.out.println("이벤트 테스트");
 								addUserGame.add(game);
 								System.out.println(game.toString());
 							}
-							
+
 						}
 
 					}
-					
 
 				}
-				
+
 				break;
 
 			case "3":
-				for (Game userGame : addUserGame) System.out.println(userGame);
-				
+				for (Game userGame : addUserGame)
+					System.out.println(userGame);
+
 				break;
 
 			case "4":
@@ -80,11 +84,15 @@ public class ShoppingMall {
 				System.out.print("입력 : ");
 				String removeGame = DataInput.sc.nextLine();
 				removeGameFromCart(removeGame);
-				
-				
 				break;
+
 			case "5":
-				
+				// List에있는 애들 clear 하기전에 더하자 Stream으로
+				payAll();
+				addUserGame.clear();
+				break;
+			case "6":
+
 				return;
 
 			default:
@@ -94,28 +102,34 @@ public class ShoppingMall {
 		}
 	}
 
+	// 결제
+	private void payAll() {
+		addUserGame.stream().mapToInt(p -> p.getGamePrice()).forEach(price -> amount += price);
+		System.out.println("총 결제금액 : " + amount);
+	}
+
 	public void removeGameFromCart(String gameName) {
-        Iterator<Game> iterator = addUserGame.iterator();
-        boolean found = false;
-        while (iterator.hasNext()) {
-            Game game = iterator.next();
-            if (game.getGameName().equals(gameName)) {
-                iterator.remove();
-                System.out.println(gameName + " 게임이 장바구니에서 삭제되었습니다.");
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            System.out.println("장바구니에 " + gameName + " 게임이 없습니다.");
-        }
-    }
+		Iterator<Game> iterator = addUserGame.iterator();
+		boolean found = false;
+		while (iterator.hasNext()) {
+			Game game = iterator.next();
+			if (game.getGameName().equals(gameName)) {
+				iterator.remove();
+				System.out.println(gameName + " 게임이 장바구니에서 삭제되었습니다.");
+				found = true;
+				break;
+			}
+		}
+		if (!found) {
+			System.out.println("장바구니에 " + gameName + " 게임이 없습니다.");
+		}
+	}
 
 	// 게임카테고리별 1,2,3 보기
 	public void printGenre(String userInput) {
 		String[] arr = { "RPG", "Horror", "FPS" };
 
-		String genre = arr[Integer.parseInt(userInput)-1];
+		String genre = arr[Integer.parseInt(userInput) - 1];
 		System.out.println("genre" + genre);
 		ArrayList<Category> categories = order.getOrderMap().get(genre);
 		for (Category category : categories) {
@@ -142,8 +156,8 @@ public class ShoppingMall {
 			// od.getOrderMap().get(key).get(0).getGames().get(0).getGamePrice();
 			ArrayList<Category> categories = order.getOrderMap().get(key);
 			System.out.println("주문자: " + key);
-			System.out
-					.println("장르: " + order.getOrderMap().get(key).toString().replaceAll("\\[", "").replaceAll("\\]", ""));
+			System.out.println(
+					"장르: " + order.getOrderMap().get(key).toString().replaceAll("\\[", "").replaceAll("\\]", ""));
 
 			for (Category category : categories) {
 
@@ -158,6 +172,20 @@ public class ShoppingMall {
 			amount = 0;
 
 		}
+	}
+
+	public void lowerPrintOrders() {
+		Order o = new Order();
+		List<Game> sortredGames = o.getOrderMap().values().stream()
+				
+				.flatMap(category -> category.stream())
+				.flatMap(game -> game.getGames().stream())
+				.sorted(Comparator.comparingInt(Game::getGamePrice))
+				.collect(Collectors.toList());
+
+		sortredGames.forEach(System.out::println);
+		System.out.println(sortredGames.size());
+
 	}
 
 	// 상품주문하기
@@ -198,6 +226,5 @@ public class ShoppingMall {
 	public void setOrderList(Map<String, ArrayList<Order>> orderList) {
 		this.orderList = orderList;
 	}
-	
-	
+
 }

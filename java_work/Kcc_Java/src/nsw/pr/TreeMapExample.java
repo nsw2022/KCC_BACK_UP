@@ -41,6 +41,7 @@ public class TreeMapExample {
 		
 		// 내림 차순으로 정렬하기
 		NavigableMap<String, Integer> descendingMap = treeMap.descendingMap();
+		
 		NavigableMap<String, Integer> descendingMap1 = descendingMap.descendingMap();// 두번 호출하면 내림차순이 오름차순이됨 ㅋㅋ
 		Set<Entry<String, Integer>> descendingEntrySet = descendingMap1.entrySet();
 		for (Entry<String, Integer> e : descendingEntrySet) {

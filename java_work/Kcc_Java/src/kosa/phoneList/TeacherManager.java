@@ -1,5 +1,11 @@
 package kosa.phoneList;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -7,9 +13,9 @@ import java.util.Iterator;
 import java.util.List;
 
 // 전화번호 관리 전반적인 기능
-public class TeacherManager {
+public class TeacherManager implements Serializable {
 //	private TeacherPhone arr[];
-	private List<TeacherPhone>arr;
+	private List<TeacherPhone> arr;
 	// private Scanner sc;
 
 	private int count;
@@ -19,78 +25,77 @@ public class TeacherManager {
 		arr = new ArrayList<TeacherPhone>();
 		// sc = new Scanner(System.in);
 	}
-	
+
 	public void addPhoneInfo() {
-	    System.out.print("1.일반 2.회사 3.동창: ");
-	    String flag = DataInput.sc.nextLine();
+		System.out.print("1.일반 2.회사 3.동창: ");
+		String flag = DataInput.sc.nextLine();
 
-	    while (true) {
-	        String[] basicInfo = result(); // 이름, 전화번호, 생년월일을 한 번에 입력받음
-	        if (basicInfo == null || basicInfo.length < 3) {
-	            System.out.println("입력 정보가 부족합니다. 다시 입력하세요.");
-	            continue;
-	        }
+		while (true) {
+			String[] basicInfo = result(); // 이름, 전화번호, 생년월일을 한 번에 입력받음
+			if (basicInfo == null || basicInfo.length < 3) {
+				System.out.println("입력 정보가 부족합니다. 다시 입력하세요.");
+				continue;
+			}
 
-	        switch (flag) {
-	            case "1":
+			switch (flag) {
+			case "1":
 //	                arr[count++] = new TeacherPhone(basicInfo[0], basicInfo[1], basicInfo[2]);
-	                arr.add(new TeacherPhone(basicInfo[0], basicInfo[1], basicInfo[2])); 
-	                return;
+				arr.add(new TeacherPhone(basicInfo[0], basicInfo[1], basicInfo[2]));
+				return;
 
-	            case "2":
-	                System.out.print("부서: ");
-	                String dept = DataInput.sc.nextLine();
-	                System.out.print("직책: ");
-	                String position = DataInput.sc.nextLine();
-	                arr.add(new Company(basicInfo[0], basicInfo[1], basicInfo[2], dept, position));
-	                return;
+			case "2":
+				System.out.print("부서: ");
+				String dept = DataInput.sc.nextLine();
+				System.out.print("직책: ");
+				String position = DataInput.sc.nextLine();
+				arr.add(new Company(basicInfo[0], basicInfo[1], basicInfo[2], dept, position));
+				return;
 
-	            case "3":
-	                System.out.print("전공: ");
-	                String major = DataInput.sc.nextLine();
-	                System.out.print("학년: ");
-	                String year = DataInput.sc.nextLine();
-	                arr.add(new Universe(basicInfo[0], basicInfo[1], basicInfo[2], major, year));
-	                
-	                return;
+			case "3":
+				System.out.print("전공: ");
+				String major = DataInput.sc.nextLine();
+				System.out.print("학년: ");
+				String year = DataInput.sc.nextLine();
+				arr.add(new Universe(basicInfo[0], basicInfo[1], basicInfo[2], major, year));
 
-	            default:
-	                System.out.println("잘못된 선택입니다. 1, 2, 또는 3을 입력해주세요.");
-	                flag = DataInput.sc.nextLine();
-	                break;
-	        }
-	    }
+				return;
+
+			default:
+				System.out.println("잘못된 선택입니다. 1, 2, 또는 3을 입력해주세요.");
+				flag = DataInput.sc.nextLine();
+				break;
+			}
+		}
 	}
 
 	private String[] result() {
-	    System.out.print("이름: ");
-	    String name = DataInput.sc.nextLine();
-	    System.out.print("전화번호: ");
-	    String phone = DataInput.sc.nextLine();
-	    System.out.print("생년월일: ");
-	    String birthdate = DataInput.sc.nextLine();
-	    return new String[]{name, phone, birthdate};
+		System.out.print("이름: ");
+		String name = DataInput.sc.nextLine();
+		System.out.print("전화번호: ");
+		String phone = DataInput.sc.nextLine();
+		System.out.print("생년월일: ");
+		String birthdate = DataInput.sc.nextLine();
+		return new String[] { name, phone, birthdate };
 	}
-
 
 	public void listPhoneInfo() {
 		System.out.print("1.일반 2.회사 3.동창");
 		String flag = DataInput.sc.nextLine();
 		for (int i = 0; i < arr.size(); i++) {
-			
-			if (flag.equals("1")  && !(arr.get(i) instanceof Company) &&(!(arr.get(i) instanceof Universe))) {
-				
+
+			if (flag.equals("1") && !(arr.get(i) instanceof Company) && (!(arr.get(i) instanceof Universe))) {
+
 				arr.get(i).show();
 			} else if (flag.equals("2") && arr.get(i) instanceof Company) {
-				
+
 				arr.get(i).show();
 			} else if (flag.equals("3") && arr.get(i) instanceof Universe) {
-				
+
 				Iterator<TeacherPhone> iterator = arr.iterator();
 				while (iterator.hasNext()) {
 					TeacherPhone p = iterator.next();
 					System.out.println(p.getName());
-					
+
 				}
 			}
 
@@ -179,32 +184,29 @@ public class TeacherManager {
 		if (idx == -1) {
 			System.out.println("존재하지 않습니다.");
 		}
-	
-		
+
 		count--;// 다음요소가 제자리에 들어가기 위해 count를 빼줘야함
-		
 
 	}
 
-
-    public void sortedPhoneInfo() {
-    	System.out.print("1.이름  2.생일  3. 폰번호");
-    	String userInput = DataInput.sc.nextLine();
-    	System.out.print("1.내림 2.올림");
-    	String userSort = DataInput.sc.nextLine();
-    	switch (userInput) {
+	public void sortedPhoneInfo() {
+		System.out.print("1.이름  2.생일  3. 폰번호");
+		String userInput = DataInput.sc.nextLine();
+		System.out.print("1.내림 2.올림");
+		String userSort = DataInput.sc.nextLine();
+		switch (userInput) {
 		case "1":
 			Collections.sort(arr, new Comparator<TeacherPhone>() {
-	            @Override
-	            public int compare(TeacherPhone o1, TeacherPhone o2) {
-	            	if (userSort.equals("1")) {
-	            		return o1.getName().compareTo(o2.getName());
-						
-					}else {
+				@Override
+				public int compare(TeacherPhone o1, TeacherPhone o2) {
+					if (userSort.equals("1")) {
+						return o1.getName().compareTo(o2.getName());
+
+					} else {
 						return -1;
 					}
-	            }
-	        });
+				}
+			});
 			break;
 		case "2":
 			Collections.sort(arr, new Comparator<TeacherPhone>() {
@@ -212,8 +214,8 @@ public class TeacherManager {
 				public int compare(TeacherPhone o1, TeacherPhone o2) {
 					if (userSort.equals("1")) {
 						return o1.getBirth().compareTo(o2.getBirth());
-						
-					}else {
+
+					} else {
 						return -1;
 					}
 				}
@@ -223,11 +225,43 @@ public class TeacherManager {
 		default:
 			break;
 		}
-        
-        
-    }
 
-	
+	}
+
+	// 객체 저장하기
+	public void saveObject() {
+		ObjectOutputStream oos = null;
+		try {
+			oos = new ObjectOutputStream(new FileOutputStream("phoneInfo.ser"));
+			oos.writeObject(arr);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				oos.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	// 불러오기
+	public void loadObject() {
+		ObjectInputStream ois = null;
+		try {
+			ois = new ObjectInputStream(new FileInputStream("phoneInfo.ser"));
+			arr = (List<TeacherPhone>) ois.readObject();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ois.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	public List<TeacherPhone> getArr() {
 		return arr;
@@ -244,7 +278,5 @@ public class TeacherManager {
 	public void setCount(int count) {
 		this.count = count;
 	}
-
-	
 
 }

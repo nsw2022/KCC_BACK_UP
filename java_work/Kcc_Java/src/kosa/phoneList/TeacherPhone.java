@@ -1,6 +1,8 @@
 package kosa.phoneList;
 
-public class TeacherPhone {
+import java.io.Serializable;
+
+public class TeacherPhone implements Serializable{
 	//(name, phoneNo, birth) : ÇÊµå
 	private String name, phoneNo, birth;
 	public TeacherPhone() {}

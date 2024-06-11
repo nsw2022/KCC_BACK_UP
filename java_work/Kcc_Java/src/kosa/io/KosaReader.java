@@ -13,7 +13,7 @@ public class KosaReader {
 		// 'A' == 65
 		FileReader reader =null;
 		char arr[] = new char[10];
-		
+	 
 		try {
 			// FileReader »ý¼º
 			reader = new FileReader("pome.txt");
@@ -39,7 +39,12 @@ public class KosaReader {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			
+			try {
+				reader.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	}

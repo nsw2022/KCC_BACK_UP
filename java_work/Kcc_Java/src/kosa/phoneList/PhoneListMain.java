@@ -4,12 +4,12 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public class TeacherMain2 {
+public class PhoneListMain {
 	
 	public static void main(String[] args) {
 		//Scanner sc = new Scanner(System.in);
 
-		TeacherManager tm = new TeacherManager(); 
+		PhoneManager tm = new PhoneManager(); 
 		
 		while(true) {
 			System.out.println("전화번호부 : 이름. 전화번호, 생년월일, 한명의 전화 내역을 출력");

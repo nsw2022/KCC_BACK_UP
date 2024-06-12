@@ -65,7 +65,7 @@ public class MiniDos {
 					fr.read(note);
 					System.out.println(note);
 				}catch (Exception e) {
-					// TODO: handle exception
+					
 				}finally {
 					try {
 						fr.close();
@@ -93,12 +93,11 @@ public class MiniDos {
 				writer.write(str+="\n");
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 		}finally {
 			try {
 				writer.close();
 			} catch (Exception e2) {
-				// TODO: handle exception
+				
 			}
 		}
 		

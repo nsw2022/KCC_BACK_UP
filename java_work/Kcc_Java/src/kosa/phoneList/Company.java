@@ -1,6 +1,6 @@
 package kosa.phoneList;
 
-public class Company extends TeacherPhone{
+public class Company extends PhoneInfo{
 	private String dept, position;
 	
 	public Company() {}

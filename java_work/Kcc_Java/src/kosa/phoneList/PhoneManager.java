@@ -13,16 +13,16 @@ import java.util.Iterator;
 import java.util.List;
 
 // 전화번호 관리 전반적인 기능
-public class TeacherManager implements Serializable {
+public class PhoneManager implements Serializable {
 //	private TeacherPhone arr[];
-	private List<TeacherPhone> arr;
+	private List<PhoneInfo> arr;
 	// private Scanner sc;
 
 	private int count;
 
-	public TeacherManager() {
+	public PhoneManager() {
 //		arr = new TeacherPhone[10];
-		arr = new ArrayList<TeacherPhone>();
+		arr = new ArrayList<PhoneInfo>();
 		// sc = new Scanner(System.in);
 	}
 
@@ -40,7 +40,7 @@ public class TeacherManager implements Serializable {
 			switch (flag) {
 			case "1":
 //	                arr[count++] = new TeacherPhone(basicInfo[0], basicInfo[1], basicInfo[2]);
-				arr.add(new TeacherPhone(basicInfo[0], basicInfo[1], basicInfo[2]));
+				arr.add(new PhoneInfo(basicInfo[0], basicInfo[1], basicInfo[2]));
 				return;
 
 			case "2":
@@ -91,9 +91,9 @@ public class TeacherManager implements Serializable {
 				arr.get(i).show();
 			} else if (flag.equals("3") && arr.get(i) instanceof Universe) {
 
-				Iterator<TeacherPhone> iterator = arr.iterator();
+				Iterator<PhoneInfo> iterator = arr.iterator();
 				while (iterator.hasNext()) {
-					TeacherPhone p = iterator.next();
+					PhoneInfo p = iterator.next();
 					System.out.println(p.getName());
 
 				}
@@ -119,7 +119,7 @@ public class TeacherManager implements Serializable {
 		String name = DataInput.sc.nextLine();
 		for (int i = 0; i < arr.size(); i++) {
 			if (arr.get(i).getName().indexOf(name) != -1) {
-				if (flag.equals("1") && arr.get(i) instanceof TeacherPhone) {
+				if (flag.equals("1") && arr.get(i) instanceof PhoneInfo) {
 					arr.get(i).show();
 					idx = i;
 				} else if (flag.equals("2") && arr.get(i) instanceof Company) {
@@ -196,9 +196,9 @@ public class TeacherManager implements Serializable {
 		String userSort = DataInput.sc.nextLine();
 		switch (userInput) {
 		case "1":
-			Collections.sort(arr, new Comparator<TeacherPhone>() {
+			Collections.sort(arr, new Comparator<PhoneInfo>() {
 				@Override
-				public int compare(TeacherPhone o1, TeacherPhone o2) {
+				public int compare(PhoneInfo o1, PhoneInfo o2) {
 					if (userSort.equals("1")) {
 						return o1.getName().compareTo(o2.getName());
 
@@ -209,9 +209,9 @@ public class TeacherManager implements Serializable {
 			});
 			break;
 		case "2":
-			Collections.sort(arr, new Comparator<TeacherPhone>() {
+			Collections.sort(arr, new Comparator<PhoneInfo>() {
 				@Override
-				public int compare(TeacherPhone o1, TeacherPhone o2) {
+				public int compare(PhoneInfo o1, PhoneInfo o2) {
 					if (userSort.equals("1")) {
 						return o1.getBirth().compareTo(o2.getBirth());
 
@@ -251,7 +251,7 @@ public class TeacherManager implements Serializable {
 		ObjectInputStream ois = null;
 		try {
 			ois = new ObjectInputStream(new FileInputStream("phoneInfo.ser"));
-			arr = (List<TeacherPhone>) ois.readObject();
+			arr = (List<PhoneInfo>) ois.readObject();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -263,11 +263,11 @@ public class TeacherManager implements Serializable {
 		}
 	}
 
-	public List<TeacherPhone> getArr() {
+	public List<PhoneInfo> getArr() {
 		return arr;
 	}
 
-	public void setArr(List<TeacherPhone> arr) {
+	public void setArr(List<PhoneInfo> arr) {
 		this.arr = arr;
 	}
 

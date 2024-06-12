@@ -1,6 +1,6 @@
 package kosa.phoneList;
 
-public class Universe extends TeacherPhone{
+public class Universe extends PhoneInfo{
 	private String major, year;
 
 	public Universe() {}

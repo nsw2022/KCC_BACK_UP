@@ -2,11 +2,11 @@ package kosa.phoneList;
 
 import java.io.Serializable;
 
-public class TeacherPhone implements Serializable{
+public class PhoneInfo implements Serializable{
 	//(name, phoneNo, birth) : ÇÊµå
 	private String name, phoneNo, birth;
-	public TeacherPhone() {}
-	public TeacherPhone(String name, String phoneNo, String birth) {
+	public PhoneInfo() {}
+	public PhoneInfo(String name, String phoneNo, String birth) {
 		this.name = name;
 		this.phoneNo = phoneNo;
 		this.birth = birth;

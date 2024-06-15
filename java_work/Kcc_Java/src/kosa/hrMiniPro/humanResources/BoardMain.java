@@ -1,4 +1,4 @@
-package kosa.board;
+package kosa.hrMiniPro.humanResources;
 
 import java.util.Scanner;
 

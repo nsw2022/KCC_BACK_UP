@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="E:\KCC\KCC_BACK_UP\java_work\Kcc_Java"/>
+		<item value="E:\KCC\KCC_BACK_UP"/>
+		<item value="E:\KCC\KCC_BACK_UP\java_work"/>
 		<item value="C:\KCC_BACK_UP\java_work\Kcc_Java"/>
 		<item value="C:\KCC_BACK_UP\java_work"/>
 		<item value="C:\kcc\work\java_work"/>

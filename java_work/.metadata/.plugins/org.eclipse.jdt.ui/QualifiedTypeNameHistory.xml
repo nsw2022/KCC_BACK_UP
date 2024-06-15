@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.sun.tools.jdeprscan.scan.Scan"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.lang.Character"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="kosa.hrMiniPro.humanResources.Board"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="hrMiniTest.test.LaborerDaoTest"/>
+    <fullyQualifiedTypeName name="hrMiniTest.dao.LaboreDaoImple"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="hrMiniTest.domain.NonException"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="hrMiniTest.io.Job"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="hrMiniTest.domain.Laborer"/>
+    <fullyQualifiedTypeName name="hrMiniTest.dao.LaborerDao"/>
+    <fullyQualifiedTypeName name="hrMiniTest.dao.LaborerDaoImple"/>
+    <fullyQualifiedTypeName name="hrMiniTest.service.LaborerService"/>
+    <fullyQualifiedTypeName name="hrMiniTest.service.LaborerServiceImple"/>
+    <fullyQualifiedTypeName name="hrMiniTest.io.LaborerIo"/>
+    <fullyQualifiedTypeName name="hrMiniTest.io.Console"/>
 </qualifiedTypeNameHistroy>

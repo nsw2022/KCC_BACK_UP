@@ -31,7 +31,7 @@ public class LaborerIo {
 			break;
 			
 			case FIX :
-				fixLAborer();
+				fixLaborer();
 			break;
 			
 			case DEL:
@@ -57,7 +57,7 @@ public class LaborerIo {
 		
 	}
 
-	private void fixLAborer() {
+	private void fixLaborer() {
 		int laborerId = Console.inNum("구직자ID를 입력하세요. ");
 		if(laborerId != 0) {
 			String laborerName = Console.inStr("구직자명을 입력하세요.", 5);

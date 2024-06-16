@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Laborer {
 	// 젤기본 뼈대
+	// 구직자, 노동자라는 뜻
 	
 	private int laborerId;
 	private String laborerName;

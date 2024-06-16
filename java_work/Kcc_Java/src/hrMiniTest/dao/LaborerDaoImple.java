@@ -12,6 +12,9 @@ public class LaborerDaoImple implements LaborerDao {
 	private int laborerIdSeq;
 	
 /*
+ 			
+ 		CRUD : Create Read Update Delete
+ 			
  		List<Laborer> selectLaborers(): 모든 구직자 목록을 조회합니다.
 		void insertLaborer(String laborerName, LocalDate hireDate): 새로운 구직자를 등록합니다.
 		void updateLaborer(Laborer laborer): 기존 구직자 정보를 업데이트합니다.

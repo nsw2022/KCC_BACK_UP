@@ -27,6 +27,7 @@ public class MainTest {
 		Scanner sc = new Scanner(System.in);
 		StaffDB db = new StaffDB();// 전체DB
 		HumanResourceMg humanResourceMg = new HumanResourceMg(db);// 인사결재
+<<<<<<< HEAD
 		Approval approval = new Approval();
 		RecruitmentMg recruitmentMg = new RecruitmentMg();
 		AttendanceMg attendanceMg = new AttendanceMg(db);
@@ -34,6 +35,10 @@ public class MainTest {
 		System.out.println("1. 로그인   2.채용지원 ");
 		String str = sc.nextLine();
 		Employee user = Login.login(db);
+=======
+		Approval approval = new Approval(db);
+		RecruitmentMg recruitmentMg = new RecruitmentMg(approval);
+>>>>>>> 579cfd207fccf7f033aaa10a3a8f06ca12d5b115
 		
 		while (true) {
 			//System.out.println("1. 로그인   2.채용지원");
@@ -65,7 +70,7 @@ public class MainTest {
 					attendanceMg.startWork(user.getEmployeeId());
 					// 1.인사결재  2.채용결재  3.근여결재
 					// System.out.println("임직원");////성공
-					approval.hrApproval(db, humanResourceMg);
+					approval.hrApproval(humanResourceMg);
 				}
 				
 				break;

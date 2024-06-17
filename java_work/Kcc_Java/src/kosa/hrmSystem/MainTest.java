@@ -26,8 +26,8 @@ public class MainTest {
 		Scanner sc = new Scanner(System.in);
 		StaffDB db = new StaffDB();// 전체DB
 		HumanResourceMg humanResourceMg = new HumanResourceMg(db);// 인사결재
-		Approval approval = new Approval();
-		RecruitmentMg recruitmentMg = new RecruitmentMg();
+		Approval approval = new Approval(db);
+		RecruitmentMg recruitmentMg = new RecruitmentMg(approval);
 		
 		while (true) {
 			System.out.println("1. 로그인   2.채용지원");
@@ -52,7 +52,7 @@ public class MainTest {
 				}else if(user instanceof Executives) {
 					// 1.인사결재  2.채용결재  3.근여결재
 					// System.out.println("임직원");////성공
-					approval.hrApproval(db, humanResourceMg);
+					approval.hrApproval(humanResourceMg);
 				}
 				
 				break;

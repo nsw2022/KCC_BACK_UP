@@ -1,6 +1,7 @@
 package kosa.hrmSystem;
 
 import kosa.hrmSystem.employees.JobSeeker;
+import kosa.hrmSystem.executives_func.Approval;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -8,10 +9,12 @@ import java.util.List;
 public class RecruitmentMg {
     private List<JobSeeker> jobSeekers;
     private List<JobSeeker> tmpJobSeekers; //
+    private Approval approval;
 
-    public RecruitmentMg() {
+    public RecruitmentMg( Approval approval) {
         this.jobSeekers = new LinkedList<JobSeeker>();
         this.tmpJobSeekers = new LinkedList<JobSeeker>();
+        this.approval = approval;
     }
 
     public void jobSeekerSearch(){
@@ -32,6 +35,8 @@ public class RecruitmentMg {
         }
         tmpJobSeekers.add(tmp);
         System.out.println("지원자가 1차 합격하였습니다");
+        approval.getRecruitmentApprovalCase().add(tmp);
+
     }
 
     public List<JobSeeker> getJobSeekers() {

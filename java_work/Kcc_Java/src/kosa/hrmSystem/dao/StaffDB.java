@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 import javax.management.RuntimeErrorException;
 
 import kosa.hrmSystem.employees.Employee;
+import kosa.hrmSystem.employees.Executives;
+import kosa.hrmSystem.employees.GeneralEmployee;
 import kosa.hrmSystem.employees.HrStaff;
 import kosa.hrmSystem.enums.StateType;
 
@@ -20,7 +22,8 @@ public class StaffDB {
 	public StaffDB() {
 		employeeList=new ArrayList<Employee>();
 		employeeList.add(new HrStaff("³ë½Â¿ì","aaa","1234"));
-		employeeList.add(new Employee("³ë½Â·Ö","bbb","1234"));
+		employeeList.add(new GeneralEmployee("³ë½Â·Ö","bbb","1234"));
+		employeeList.add(new Executives("ÀÌÁöÈÆ","ccc","1234"));
 		employeeList.get(0).setBusinessTripState(StateType.pending);
 	}
 

@@ -16,12 +16,36 @@ public class Employee {
     public Employee() {
         this.vacationState = null;
     }
+    
+    // 복사 생성자
+    public Employee(Employee other) {
+        this.name = other.name;
+        this.employeeId = other.employeeId;
+        this.employeePw = other.employeePw;
+        this.departmentType = other.departmentType;
+        this.vacationState = other.vacationState;
+        this.workOutsideState = other.workOutsideState;
+        this.businessTripState = other.businessTripState;
+        this.companyLevel = other.companyLevel;
+    }
 
     public Employee(String name, String employeeId, String employeePw) {
 		super();
 		this.name = name;
 		this.employeeId = employeeId;
 		this.employeePw = employeePw;
+	}
+    
+    public void copyFrom(Employee other) {
+    	  this.name = other.name;
+          this.employeeId = other.employeeId;
+          this.employeePw = other.employeePw;
+          this.departmentType = other.departmentType;
+          this.vacationState = other.vacationState;
+          this.workOutsideState = other.workOutsideState;
+          this.businessTripState = other.businessTripState;
+          this.companyLevel = other.companyLevel;
+		
 	}
 
 	public Employee(String name, String employeeId, String employeePw, DepartmentType departmentType,
@@ -112,6 +136,8 @@ public class Employee {
 	public void setCompanyLevel(CompanyLevel companyLevel) {
 		this.companyLevel = companyLevel;
 	}
+
+	
 	
     
 }

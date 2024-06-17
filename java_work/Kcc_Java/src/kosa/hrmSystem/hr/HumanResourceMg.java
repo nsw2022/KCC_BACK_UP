@@ -83,8 +83,20 @@ public class HumanResourceMg {
 		}
 		
 	}
+	
 
-	public void hrApproveReq() {
+	public List<Employee> hrApproveReq() {
 		
+		return pendingUpdate;
 	}
+
+	public List<Employee> getPendingUpdate() {
+		return pendingUpdate;
+	}
+
+	public void setPendingUpdate(List<Employee> pendingUpdate) {
+		this.pendingUpdate = pendingUpdate;
+	}
+	
+	
 }

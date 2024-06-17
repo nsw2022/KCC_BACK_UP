@@ -8,12 +8,17 @@ import java.util.Scanner;
 import kosa.hrmSystem.dao.StaffDB;
 import kosa.hrmSystem.employees.Employee;
 import kosa.hrmSystem.employees.JobSeeker;
+import kosa.hrmSystem.hr.HumanResourceMg;
 
 public class Approval {
 	Scanner sc = new Scanner(System.in);
 	private List<Employee> hrApprovalCase;
 	private List<Employee> salaryApprovalCase;
 	private List<JobSeeker> recruitmentApprovalCase;
+
+	public void setHrApprovalCase(List<Employee> hrApprovalCase) {
+		this.hrApprovalCase = hrApprovalCase;
+	}
 
 	// constructor
 	public Approval() {
@@ -23,7 +28,8 @@ public class Approval {
 	}
 
 	// method
-	public void hrApproval(StaffDB db) {
+	public void hrApproval(StaffDB db, HumanResourceMg hrm) {
+		hrApprovalCase = hrm.getPendingUpdate();
 		List<Employee> allEmployee=db.readDB();
 		if (hrApprovalCase.isEmpty() == true) {
 			System.out.println("결재 할 인사결재 건이 없습니다.");
@@ -44,12 +50,17 @@ public class Approval {
 		for (int i = 0; i < arr.length; i++) {
 			tmpList.add(hrApprovalCase.get(Integer.parseInt(arr[i])));
 		}
-		for (int i = 0; i < allEmployee.size(); i++) {
-			for (int j = 0; j < tmpList.size(); j++) {
-				if(allEmployee.get(i).getEmployeeId().equals(tmpList.get(j).getEmployeeId())) {
-					allEmployee.get(i)allEmployee = tmpList.get(j);
-				}
-			}
+		for (Employee tmpEmployee : tmpList) {
+	        for (Employee allEmp : allEmployee) {
+	            if (allEmp.getEmployeeId().equals(tmpEmployee.getEmployeeId())) {
+	                // 원본 직원의 값을 변경합니다
+	                allEmp.copyFrom(tmpEmployee);
+	            }
+	        }
+	    }
+		tmpList.clear();
+		for (Employee employee : allEmployee) {
+			System.out.println(employee);
 		}
 		
 	}

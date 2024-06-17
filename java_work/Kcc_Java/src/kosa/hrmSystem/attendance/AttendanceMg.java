@@ -9,6 +9,7 @@ import java.util.Set;
 
 import kosa.hrmSystem.dao.StaffDB;
 import kosa.hrmSystem.employees.Employee;
+import kosa.hrmSystem.enums.StateType;
 
 public class AttendanceMg {
 	private StaffDB db;
@@ -57,6 +58,56 @@ public class AttendanceMg {
 
 			System.out.println("------------------");
 		}
+	}
+	
+	// 휴가신청
+	public void vacationReq(String userId) {
+		for (Employee employee : allEmployee) {
+			if(employee.getEmployeeId().equals(userId)) {
+				employee.setVacationState(StateType.pending);
+				return;
+			}
+		}
+	}
+	
+	// 외근신청
+	public void workQutsideReq(String userId) {
+		for (Employee employee : allEmployee) {
+			if(employee.getEmployeeId().equals(userId)) {
+				employee.setWorkOutsideState(StateType.pending);
+				return;
+			}
+		}
+	}
+	
+	// 출장신청
+	public void businessTripReq(String userId) {
+		for (Employee employee : allEmployee) {
+			if(employee.getEmployeeId().equals(userId)) {
+				employee.setWorkOutsideState(StateType.pending);
+				return;
+			}
+		}
+	}
+	
+	// 결재함 조회(usecase에는 없음 추가함 - 승우)
+	public void showCase(String userId) {
+		for (Employee employee : allEmployee) {
+			if (employee.getEmployeeId().equals(userId)) {
+				if (employee.getVacationState() != null) {
+					System.out.println("Vacation State: " + employee.getVacationState());
+				}
+				if (employee.getWorkOutsideState() != null) {
+					System.out.println("Work Outside State: " + employee.getWorkOutsideState());
+				}
+				if (employee.getBusinessTripState() != null) {
+					System.out.println("Business Trip State: " + employee.getBusinessTripState());
+				}
+				
+			}
+
+		}
+		return;
 	}
 
 }

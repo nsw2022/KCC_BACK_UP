@@ -6,11 +6,11 @@ import kosa.hrmSystem.enums.StateType;
 
 public class Employee {
     private String name, employeeId, employeePw;
-    private DepartmentType departmentType;
-    private StateType vacationState;
-    private StateType workOutsideState;
-    private StateType businessTripState;
-    private CompanyLevel companyLevel;
+    private DepartmentType departmentType;// 부서
+    private StateType vacationState;      // 휴가
+    private StateType workOutsideState;   // 외근
+    private StateType businessTripState;  // 출장
+    private CompanyLevel companyLevel;    // 직급
     
     //constructor
     public Employee() {

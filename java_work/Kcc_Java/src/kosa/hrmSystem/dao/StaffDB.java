@@ -15,12 +15,17 @@ public class StaffDB {
 
 	Scanner sc = new Scanner(System.in);
 
-	private List<Employee> employeeList = new ArrayList<Employee>();
+	private List<Employee> employeeList;
+	public StaffDB() {
+		employeeList=new ArrayList<Employee>();
+		employeeList.add(new HrStaff("³ë½Â¿ì","aaa","1234"));
+		employeeList.add(new Employee("³ë½Â·Ö","bbb","1234"));
+	}
 
 	public void createDB(String name,String employeeId,String employeePw) {
 		
-		// employeeList.add(new Employee(name, employeeId, employeePw)); ////±âº»Æ²
-		employeeList.add(new HrStaff("³ë½Â¿ì","aaa","1234"));
+		employeeList.add(new Employee(name, employeeId, employeePw)); ////±âº»Æ²
+		
 	}
 
 	public void updateDB(String employeeId) {

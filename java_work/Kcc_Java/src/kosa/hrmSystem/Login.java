@@ -19,7 +19,9 @@ public class Login {
         String employeePw = ScannerTool.sc.nextLine();
         
         for (Employee employee : allEmployee) {
+        	
             if (employee.getEmployeeId().equals(employeeId)) {
+            	
                 if (employee.getEmployeePw().equals(employeePw)) {
                     System.out.println("로그인 성공!");
                     em = employee;
@@ -29,6 +31,9 @@ public class Login {
 
             } else {
                 System.out.println("해당하는 ID가 없습니다.");
+            }
+            if (em != null) {
+            	return em;
             }
         }
         return em;

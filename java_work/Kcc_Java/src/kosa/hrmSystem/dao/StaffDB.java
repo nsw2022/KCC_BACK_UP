@@ -10,6 +10,7 @@ import javax.management.RuntimeErrorException;
 
 import kosa.hrmSystem.employees.Employee;
 import kosa.hrmSystem.employees.HrStaff;
+import kosa.hrmSystem.enums.StateType;
 
 public class StaffDB {
 
@@ -20,6 +21,7 @@ public class StaffDB {
 		employeeList=new ArrayList<Employee>();
 		employeeList.add(new HrStaff("³ë½Â¿ì","aaa","1234"));
 		employeeList.add(new Employee("³ë½Â·Ö","bbb","1234"));
+		employeeList.get(0).setBusinessTripState(StateType.pending);
 	}
 
 	public void createDB(String name,String employeeId,String employeePw) {
@@ -67,4 +69,14 @@ public class StaffDB {
 	public List<Employee> readDB() {
 		return employeeList;
 	}
+
+	public List<Employee> getEmployeeList() {
+		return employeeList;
+	}
+
+	public void setEmployeeList(List<Employee> employeeList) {
+		this.employeeList = employeeList;
+	}
+	
+	
 }

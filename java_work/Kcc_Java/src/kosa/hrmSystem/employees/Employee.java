@@ -1,5 +1,6 @@
 package kosa.hrmSystem.employees;
 
+import kosa.hrmSystem.enums.CompanyLevel;
 import kosa.hrmSystem.enums.DepartmentType;
 import kosa.hrmSystem.enums.StateType;
 
@@ -9,7 +10,8 @@ public class Employee {
     private StateType vacationState;
     private StateType workOutsideState;
     private StateType businessTripState;
-
+    private CompanyLevel companyLevel;
+    
     //constructor
     public Employee() {
         this.vacationState = null;
@@ -22,11 +24,31 @@ public class Employee {
 		this.employeePw = employeePw;
 	}
 
-
+	public Employee(String name, String employeeId, String employeePw, DepartmentType departmentType,
+			StateType vacationState, StateType workOutsideState, StateType businessTripState,
+			CompanyLevel companyLevel) {
+		super();
+		this.name = name;
+		this.employeeId = employeeId;
+		this.employeePw = employeePw;
+		this.departmentType = departmentType;
+		this.vacationState = vacationState;
+		this.workOutsideState = workOutsideState;
+		this.businessTripState = businessTripState;
+		this.companyLevel = companyLevel;
+	}
 
 	//    method
 
-    //    setter getter
+    @Override
+	public String toString() {
+		return "직원 [이름=" + name 
+				+ " 부서=" + departmentType + ", 휴가신청상태=" + vacationState + ", 출장신청상태="
+				+ workOutsideState + ", 외근신청상태=" + businessTripState + ", 직급=" + companyLevel
+				+ "]";
+	}
+
+	//    setter getter
     public StateType getBusinessTripState() {
         return businessTripState;
     }
@@ -82,5 +104,14 @@ public class Employee {
 	public void setEmployeePw(String employeePw) {
 		this.employeePw = employeePw;
 	}
+
+	public CompanyLevel getCompanyLevel() {
+		return companyLevel;
+	}
+
+	public void setCompanyLevel(CompanyLevel companyLevel) {
+		this.companyLevel = companyLevel;
+	}
+	
     
 }

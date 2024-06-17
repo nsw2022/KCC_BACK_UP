@@ -1,4 +1,4 @@
-package kosa.hrmSystem.employees;
+package kosa.hrmSystem.enums;
 
 public enum CompanyLevel {
 	clerk, // »ç¿ø

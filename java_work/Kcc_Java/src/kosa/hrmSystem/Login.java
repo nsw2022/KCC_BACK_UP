@@ -5,38 +5,30 @@ import java.util.List;
 import kosa.hrmSystem.dao.StaffDB;
 import kosa.hrmSystem.employees.Employee;
 
-
 public class Login {
-    public static Employee login(StaffDB db) {
+	public static Employee login(StaffDB db) {
 //        로그인 성공한 사원의 인스턴스를 받기위한 변수
-        Employee em = null;
+		Employee em = null;
 //        StaffDB인스턴스에서 모든 배열을 가져옴
-        List<Employee> allEmployee = db.readDB();
+		List<Employee> allEmployee = db.readDB();
 
-        System.out.print("직원 ID를 입력하세요: ");
-        String employeeId = ScannerTool.sc.nextLine();
-        System.out.print("pw를 입력하세요: ");
-        String employeePw = ScannerTool.sc.nextLine();
-        
-        for (Employee employee : allEmployee) {
-        	
-            if (employee.getEmployeeId().equals(employeeId)) {
-            	
-                if (employee.getEmployeePw().equals(employeePw)) {
-                    System.out.println("로그인 성공!");
-                    em = employee;
-                } else {
-                    System.out.println("pw가 틀렸습니다!");
-                }
+		while (true) {
+			System.out.print("직원 ID를 입력하세요: ");
+			String employeeId = ScannerTool.sc.nextLine();
+			System.out.print("pw를 입력하세요: ");
+			String employeePw = ScannerTool.sc.nextLine();
+			for (Employee employee : allEmployee) {
+				
+				if (employee.getEmployeeId().equals(employeeId)&&employee.getEmployeePw().equals(employeePw)) {
+					System.out.println("로그인 성공!");
+					em = employee;
+					return em;
+				}
+				
+			}
+			System.out.println("실패! 다시시도해주세요");
+		}
 
-            } else {
-                System.out.println("해당하는 ID가 없습니다.");
-            }
-            if (em != null) {
-            	return em;
-            }
-        }
-        
-        return em;
-    }
+
+	}
 }

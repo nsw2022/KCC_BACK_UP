@@ -1,6 +1,6 @@
 package kosa.hrmSystem.hr.salaryMg;
 
-import kosa.hrmSystem.employees.CompanyLevel;
+import kosa.hrmSystem.enums.CompanyLevel;
 
 public class SalaryMath {
 	private String name;

@@ -4,7 +4,7 @@ import kosa.hrmSystem.enums.DepartmentType;
 import kosa.hrmSystem.enums.StateType;
 
 public class Employee {
-    private String name;
+    private String name, employeeId, employeePw;
     private DepartmentType departmentType;
     private StateType vacationState;
     private StateType workOutsideState;
@@ -13,10 +13,18 @@ public class Employee {
     //constructor
     public Employee() {
         this.vacationState = null;
-
     }
 
-    //    method
+    public Employee(String name, String employeeId, String employeePw) {
+		super();
+		this.name = name;
+		this.employeeId = employeeId;
+		this.employeePw = employeePw;
+	}
+
+
+
+	//    method
 
     //    setter getter
     public StateType getBusinessTripState() {
@@ -58,4 +66,21 @@ public class Employee {
     public void setWorkOutsideState(StateType workOutsideState) {
         this.workOutsideState = workOutsideState;
     }
+
+	public String getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public String getEmployeePw() {
+		return employeePw;
+	}
+
+	public void setEmployeePw(String employeePw) {
+		this.employeePw = employeePw;
+	}
+    
 }

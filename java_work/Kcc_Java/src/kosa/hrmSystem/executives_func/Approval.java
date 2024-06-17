@@ -1,6 +1,5 @@
 package kosa.hrmSystem.executives_func;
 
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,48 +8,46 @@ import kosa.hrmSystem.employees.Employee;
 import kosa.hrmSystem.employees.JobSeeker;
 
 public class Approval {
-    private List<Employee> hrApprovalCase;
-    private List<Employee> salaryApprovalCase;
-    private List<JobSeeker> recruitmentApprovalCase;
+	private List<Employee> hrApprovalCase;
+	private List<Employee> salaryApprovalCase;
+	private List<JobSeeker> recruitmentApprovalCase;
 
-    // constructor
-    public Approval() {
-        this.hrApprovalCase = new LinkedList<Employee>();
-        this.salaryApprovalCase = new LinkedList<Employee>();
-        this.recruitmentApprovalCase = new LinkedList<JobSeeker>();
-    }
+	// constructor
+	public Approval() {
+		this.hrApprovalCase = new LinkedList<Employee>();
+		this.salaryApprovalCase = new LinkedList<Employee>();
+		this.recruitmentApprovalCase = new LinkedList<JobSeeker>();
+	}
 
-    // method
-    public void hrApproval() {
-        if (hrApprovalCase.isEmpty() == true) {
-            System.out.println("å¯ƒê³—ì˜± ï¿½ë¸· ï¿½ì”¤ï¿½ê¶—å¯ƒê³—ì˜± å«„ëŒì”  ï¿½ë¾¾ï¿½ë’¿ï¿½ë•²ï¿½ë–.");
-            return;
-        }
-        for (Employee employee : hrApprovalCase) {
+	// method
+	public void hrApproval() {
+		if (hrApprovalCase.isEmpty() == true) {
+			System.out.println("°áÀç ÇÒ ÀÎ»ç°áÀç °ÇÀÌ ¾ø½À´Ï´Ù.");
+			return;
+		}
+		for (Employee employee : hrApprovalCase) {
 
 //            int num = ScannerTool.sc.nextInt();
 
 //            if () {
 //            } else {
 //            }
-        }
+		}
 
+	}
 
-    }
+	public void salaryApproval() {
+		if (salaryApprovalCase.isEmpty() == true) {
+			System.out.println("°áÀç ÇÒ ±Ş¿©°áÀç °ÇÀÌ ¾ø½À´Ï´Ù.");
+			return;
+		}
+	}
 
-    public void salaryApproval() {
-        if (salaryApprovalCase.isEmpty() == true) {
-            System.out.println("å¯ƒê³—ì˜± ï¿½ë¸· æ¹²ë±ë¿¬å¯ƒê³—ì˜± å«„ëŒì”  ï¿½ë¾¾ï¿½ë’¿ï¿½ë•²ï¿½ë–.");
-            return;
-        }
-    }
-
-    public void recruitmentApproval() {
-        if (recruitmentApprovalCase.isEmpty() == true) {
-            System.out.println("å¯ƒê³—ì˜± ï¿½ë¸· ï§¢ê¾©ìŠœå¯ƒê³—ì˜± å«„ëŒì”  ï¿½ë¾¾ï¿½ë’¿ï¿½ë•²ï¿½ë–.");
-            return;
-        }
-    }
-
+	public void recruitmentApproval() {
+		if (recruitmentApprovalCase.isEmpty() == true) {
+			System.out.println("°áÀç ÇÒ Ã¤¿ë°áÀç °ÇÀÌ ¾ø½À´Ï´Ù.");
+			return;
+		}
+	}
 
 }

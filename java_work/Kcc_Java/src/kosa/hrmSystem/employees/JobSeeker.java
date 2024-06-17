@@ -2,6 +2,7 @@ package kosa.hrmSystem.employees;
 
 import java.time.LocalDate;
 
+import kosa.hrmSystem.RecruitmentMg;
 import kosa.hrmSystem.enums.StateType;
 
 public class JobSeeker {
@@ -14,9 +15,17 @@ public class JobSeeker {
     
     
     // constructor
-    public JobSeeker() {
+    public JobSeeker(String name, int jobSeekerId) {
+		this.name = name;
+		this.jobSeekerId = jobSeekerId;
         this.isPass = StateType.pending;
     }
+
+	//	method
+	public void apply(RecruitmentMg rm){
+		rm.getJobSeekers().add(this);
+		this.applyDate = LocalDate.now();
+	}
 
 	public StateType getIsPass() {
 		return isPass;

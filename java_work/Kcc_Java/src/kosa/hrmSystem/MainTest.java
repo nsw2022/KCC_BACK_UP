@@ -24,17 +24,20 @@ public class MainTest {
 		approval.hrApproval(db, humanResourceMg);
 		*/
 		Scanner sc = new Scanner(System.in);
-		StaffDB db = new StaffDB();
-		HumanResourceMg humanResourceMg = new HumanResourceMg(db);
+		StaffDB db = new StaffDB();// 전체DB
+		HumanResourceMg humanResourceMg = new HumanResourceMg(db);// 인사결재
+		Approval approval = new Approval();
+		RecruitmentMg recruitmentMg = new RecruitmentMg();
+		
 		while (true) {
-			System.out.println("1. 로그인   2. 회원가입");
+			System.out.println("1. 로그인   2.채용지원");
 			String str = sc.nextLine();
 			switch (str) {
 			case "1":
 				Employee user = Login.login(db);
 				if (user instanceof HrStaff) {
 					String hrInput = sc.nextLine();
-					// 1번인사편집 근태 급여 채용
+					// 1번인사편집, 근태, 채용
 					switch (hrInput) {
 					case "1":
 						humanResourceMg.hrUpdate();						
@@ -49,12 +52,23 @@ public class MainTest {
 				}else if(user instanceof Executives) {
 					// 1.인사결재  2.채용결재  3.근여결재
 					// System.out.println("임직원");////성공
-					Approval approval = new Approval();
 					approval.hrApproval(db, humanResourceMg);
 				}
 				
 				break;
-
+			case "2":
+				System.out.print("이름을 입력해주세요.");
+				String jobSeekerName = sc.nextLine();
+				JobSeeker jobSeeker = new JobSeeker(jobSeekerName);
+				jobSeeker.apply(recruitmentMg);
+				System.out.println("지원 완료!");
+				recruitmentMg.jobSeekerSearch();
+				System.out.print("합격시킬 아이디 입력: ");
+				int id = sc.nextInt();
+				sc.nextLine();
+				recruitmentMg.jobSeekerPass(id);
+				
+				break;
 			default:
 				break;
 			}

@@ -15,9 +15,9 @@ public class JobSeeker {
     
     
     // constructor
-    public JobSeeker(String name, int jobSeekerId) {
+    public JobSeeker(String name) {
 		this.name = name;
-		this.jobSeekerId = jobSeekerId;
+		++jobSeekerId;
         this.isPass = StateType.pending;
     }
 

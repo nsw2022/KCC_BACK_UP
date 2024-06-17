@@ -7,7 +7,7 @@ import java.util.List;
 
 public class RecruitmentMg {
     private List<JobSeeker> jobSeekers;
-    private List<JobSeeker> tmpJobSeekers;
+    private List<JobSeeker> tmpJobSeekers; //
 
     public RecruitmentMg() {
         this.jobSeekers = new LinkedList<JobSeeker>();
@@ -17,7 +17,7 @@ public class RecruitmentMg {
     public void jobSeekerSearch(){
         for (int i = 0; i<jobSeekers.size();i++){
             JobSeeker jobSeeker = jobSeekers.get(i);
-            System.out.println((i+1)+") "+"ID: "+jobSeeker.getJobSeekerId()+"ì´ë¦„: "+jobSeeker.getName()+" ì§€ì›ë‚ ì§œ: "+jobSeeker.getApplyDate()+" (í•©/ë¶ˆ): "+jobSeeker.getIsPass());
+            System.out.println((i+1)+") "+"ID: "+jobSeeker.getJobSeekerId()+" ÀÌ¸§: "+jobSeeker.getName()+" Áö¿ø³¯Â¥: "+jobSeeker.getApplyDate()+" (ÇÕ/ºÒ): "+jobSeeker.getIsPass());
         }
     }
     public void jobSeekerPass(int ID){
@@ -28,10 +28,10 @@ public class RecruitmentMg {
             }
         }
         if(tmp == null){
-            System.out.println("í•´ë‹¹ ì•„ì´ë””ì˜ ì§€ì›ìžëŠ” ì—†ìŠµë‹ˆë‹¤.");
+            System.out.println("ÇØ´ç ¾ÆÀÌµðÀÇ Áö¿øÀÚ´Â ¾ø½À´Ï´Ù.");
         }
         tmpJobSeekers.add(tmp);
-        System.out.println("ì§€ì›ìžê°€ 1ì°¨ í•©ê²©í•˜ì˜€ìŠµë‹ˆë‹¤");
+        System.out.println("Áö¿øÀÚ°¡ 1Â÷ ÇÕ°ÝÇÏ¿´½À´Ï´Ù");
     }
 
     public List<JobSeeker> getJobSeekers() {

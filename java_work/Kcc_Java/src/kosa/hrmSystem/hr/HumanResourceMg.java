@@ -34,7 +34,7 @@ public class HumanResourceMg {
 				CompanyLevel.clerk };
 
 		while (true) {
-			System.out.print("1. 인사과 편집  2. 종료: ");
+			System.out.print("1.편집하기  2. 뒤로가기: ");
 			String str = sc.nextLine();
 			if (str.equals("2")) {
 				System.out.println("원본");

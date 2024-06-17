@@ -1,4 +1,4 @@
-package kosa.hrmSystem.salaryMg;
+package kosa.hrmSystem.hr.salaryMg;
 
 import java.util.ArrayList;
 import java.util.Scanner;

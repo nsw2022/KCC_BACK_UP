@@ -27,23 +27,22 @@ public class MainTest {
 		Scanner sc = new Scanner(System.in);
 		StaffDB db = new StaffDB();// 전체DB
 		HumanResourceMg humanResourceMg = new HumanResourceMg(db);// 인사결재
-<<<<<<< HEAD
-		Approval approval = new Approval();
-		RecruitmentMg recruitmentMg = new RecruitmentMg();
+
 		AttendanceMg attendanceMg = new AttendanceMg(db);
+		
+		Approval approval = new Approval(db);
+		RecruitmentMg recruitmentMg = new RecruitmentMg(approval);
 		
 		System.out.println("1. 로그인   2.채용지원 ");
 		String str = sc.nextLine();
-		Employee user = Login.login(db);
-=======
-		Approval approval = new Approval(db);
-		RecruitmentMg recruitmentMg = new RecruitmentMg(approval);
->>>>>>> 579cfd207fccf7f033aaa10a3a8f06ca12d5b115
+
+
 		
 		while (true) {
 			//System.out.println("1. 로그인   2.채용지원");
 			switch (str) {
 			case "1":
+				Employee user = Login.login(db);
 				if (user instanceof HrStaff) {
 					System.out.println("1. 인사과 편집  2. 퇴근:");
 					String hrInput = sc.nextLine();

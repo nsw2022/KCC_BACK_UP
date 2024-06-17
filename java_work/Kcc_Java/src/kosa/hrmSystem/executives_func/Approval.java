@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import kosa.hrmSystem.dao.StaffDB;
 import kosa.hrmSystem.employees.Employee;
+import kosa.hrmSystem.employees.GeneralEmployee;
 import kosa.hrmSystem.employees.JobSeeker;
 import kosa.hrmSystem.hr.HumanResourceMg;
 
@@ -15,20 +16,22 @@ public class Approval {
 	private List<Employee> hrApprovalCase;
 	private List<Employee> salaryApprovalCase;
 	private List<JobSeeker> recruitmentApprovalCase;
+	private StaffDB db;
 
 	public void setHrApprovalCase(List<Employee> hrApprovalCase) {
 		this.hrApprovalCase = hrApprovalCase;
 	}
 
 	// constructor
-	public Approval() {
+	public Approval(StaffDB db) {
 		this.hrApprovalCase = new LinkedList<Employee>();
 		this.salaryApprovalCase = new LinkedList<Employee>();
 		this.recruitmentApprovalCase = new LinkedList<JobSeeker>();
+		this.db=db;
 	}
 
 	// method
-	public void hrApproval(StaffDB db, HumanResourceMg hrm) {
+	public void hrApproval( HumanResourceMg hrm) {
 		hrApprovalCase = hrm.getPendingUpdate();
 		List<Employee> allEmployee=db.readDB();
 		if (hrApprovalCase.isEmpty() == true) {
@@ -70,7 +73,6 @@ public class Approval {
 			System.out.println("결재 할 급여결재 건이 없습니다.");
 			return;
 		}
-		
 	}
 
 	public void recruitmentApproval() {
@@ -78,6 +80,23 @@ public class Approval {
 			System.out.println("결재 할 채용결재 건이 없습니다.");
 			return;
 		}
+
+		for (int i = 0; i<recruitmentApprovalCase.size();i++){
+			JobSeeker jobSeeker = recruitmentApprovalCase.get(i);
+			System.out.println((i+1)+") "+"ID: "+jobSeeker.getJobSeekerId()+" 이름: "+jobSeeker.getName()+" 지원날짜: "+jobSeeker.getApplyDate()+" (합/불): "+jobSeeker.getIsPass());
+		}
+
+		System.out.print("합격시킬 아이디 공백을 기준으로 입력: ");
+		String id = sc.nextLine();
+
+		String[] arr = id.strip().split(" ");
+		for (String i : arr){
+			JobSeeker e = recruitmentApprovalCase.get(Integer.parseInt(i));
+			db.readDB().add(new GeneralEmployee());
+		}
 	}
 
+	public List<JobSeeker> getRecruitmentApprovalCase() {
+		return recruitmentApprovalCase;
+	}
 }

@@ -64,7 +64,11 @@ public class Employee {
 
 	//    method
 
-    @Override
+    public Employee(String name) {
+		this.name=name;
+	}
+
+	@Override
 	public String toString() {
 		return "직원 [이름=" + name 
 				+ " 부서=" + departmentType + ", 휴가신청상태=" + vacationState + ", 출장신청상태="

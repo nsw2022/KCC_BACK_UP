@@ -92,7 +92,7 @@ public class Approval {
 		String[] arr = id.strip().split(" ");
 		for (String i : arr){
 			JobSeeker e = recruitmentApprovalCase.get(Integer.parseInt(i));
-			db.readDB().add(new GeneralEmployee());
+			db.readDB().add(new GeneralEmployee(e.getName()));
 		}
 	}
 

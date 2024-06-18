@@ -9,15 +9,16 @@ public class JobSeeker {
 
     //    field
     private StateType isPass; //  합/불 상태
-    int jobSeekerId;// 인덱스 번호
-    String name;// 이름
-    LocalDate applyDate; // 지원날짜
+	static int id;
+	private int jobSeekerId;// 인덱스 번호
+    private String name;// 이름
+    private LocalDate applyDate; // 지원날짜
     
     
     // constructor
     public JobSeeker(String name) {
 		this.name = name;
-		++jobSeekerId;
+		this.jobSeekerId = id++;
         this.isPass = StateType.pending;
     }
 

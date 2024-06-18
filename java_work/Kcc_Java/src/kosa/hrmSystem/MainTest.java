@@ -37,7 +37,7 @@ public class MainTest {
                     Employee user = Login.login(db);
                     if (user != null) {
                         if (user instanceof HrStaff) {
-                            hrStaffMenu(sc, humanResourceMg, attendanceMg, user);
+                            hrStaffMenu(sc,recruitmentMg, humanResourceMg, attendanceMg, user);
                         } else if (user instanceof GeneralEmployee) {
                             generalEmployeeMenu(sc, attendanceMg, user);
                         } else if (user instanceof Executives) {
@@ -68,7 +68,7 @@ public class MainTest {
     */
 
     // 인사과 직원기능 모아놓음
-    private static void hrStaffMenu(Scanner sc, HumanResourceMg humanResourceMg, AttendanceMg attendanceMg, Employee user) {
+    private static void hrStaffMenu(Scanner sc,RecruitmentMg recruitmentMg, HumanResourceMg humanResourceMg, AttendanceMg attendanceMg, Employee user) {
         attendanceMg.startWork(user.getEmployeeId()); // 출근
         while (true) {
             System.out.println("1. 인사과 편집   2. 채용   3. 근태관리   4. 퇴근");
@@ -82,8 +82,33 @@ public class MainTest {
                     humanResourceMg.hrUpdate();
                     break;
                     
-                // 채용추가해야함 - 영진햄 헬프  
-                
+                // 채용추가해야함 - 영진햄 헬프
+                case "2":
+                    System.out.println("+++++++++ 지원자 명단 +++++++++");
+                    recruitmentMg.jobSeekerSearch();
+                    System.out.println("+++++++++ +++++++++ +++++++++");
+
+                    int option=0;
+                    while (option!=2){
+                        if(recruitmentMg.getJobSeekers().isEmpty()){
+                            System.out.println("채용 프로그램 종료");
+                            return;
+                        }
+                        System.out.print("1.심사하기 2.종료");
+                        option=sc.nextInt();
+                        sc.nextLine();
+                        if (option == 1){
+                            System.out.print("1차 합격시킬 지원자의 ID를 입력하세요: ");
+                            int id = sc.nextInt();
+                            sc.nextLine();
+                            recruitmentMg.jobSeekerPass(id);
+                        }
+                        else if (option == 2) {
+                            System.out.println("채용 프로그램 종료");
+                            return;
+                        }
+                    }
+                    break;
                 case "3":
                     
                     break;
@@ -176,10 +201,6 @@ public class MainTest {
         jobSeeker.apply(recruitmentMg);
         System.out.println("지원 완료!");
         recruitmentMg.jobSeekerSearch();
-        System.out.print("합격시킬 아이디 입력: ");
-        int id = sc.nextInt();
-        sc.nextLine();  // 초기화
-        recruitmentMg.jobSeekerPass(id);
     }
 }
 

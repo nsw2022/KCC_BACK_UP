@@ -30,10 +30,11 @@ public class MainTest {
 		SalaryPrint sp = new SalaryPrint(db);
 
 		while (true) {
-			System.out.println("1. 로그인   2.채용지원   3.근태기록 조회   4. 종료");
+			System.out.println("1.로그인\t\t2.채용지원\t\t3.근태기록 조회\t\t4.종료");
+			System.out.print(">입력 : ");
 			String str = sc.nextLine();
 
-			if (str.equals("4")) {
+			if (str.equals("3")) {
 				break; // 루프 탈출 조건
 			}
 
@@ -56,10 +57,10 @@ public class MainTest {
 				// 채용지원
 				jobApplicationProcess(sc, recruitmentMg);
 				break;
-			case "3":
-				// 얘는 여따가 두변안되긴하는데 임시 근태
-				attendanceMg.printAttendanceRecords();
-				break;
+//			case "3":
+//				// 얘는 여따가 두변안되긴하는데 임시 근태
+//				attendanceMg.printAttendanceRecords();
+//				break;
 			default:
 				System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
 				break;
@@ -116,7 +117,7 @@ public class MainTest {
 				sp.work();
 				while (true) {
 					System.out.println("=======================================");
-					System.out.println("1.사원검색 2.전체출력 3.종료");
+					System.out.println("1.사원검색\t\t2.전체출력\t\t3.종료");
 					String str = sc.nextLine();
 					switch (str) {
 					case "1":
@@ -148,7 +149,7 @@ public class MainTest {
 	private static void generalEmployeeMenu(Scanner sc, AttendanceMg attendanceMg, Employee user) {
 		attendanceMg.startWork(user.getEmployeeId());
 		while (true) {
-			System.out.println("1. 휴가신청   2. 출장 신청   3. 외근 신청   4. 결재함 조회   5. 나의 근태 조회   6. 퇴근");
+			System.out.println("1.휴가신청\t2.출장 신청\t3.외근 신청\t4.결재함 조회\t5.나의 근태 조회 \t6.퇴근");
 			String generalInput = sc.nextLine();
 			if (generalInput.equals("6")) {
 				attendanceMg.endWork(user.getEmployeeId());
@@ -192,7 +193,7 @@ public class MainTest {
 		// 1.인사결재 2.급여결재 3.채용결재 4.퇴근
 
 		while (true) {
-			System.out.println("1.인사결재  2.급여결재 3.채용결재 4.퇴근 ");
+			System.out.println("1.인사결재\t2.급여결재\t3.채용결재\t4.퇴근");
 			String executilInput = sc.nextLine();
 			if (executilInput.equals("3")) {
 				approval.recruitmentApproval();

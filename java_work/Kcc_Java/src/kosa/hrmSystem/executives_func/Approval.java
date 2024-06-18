@@ -9,6 +9,7 @@ import kosa.hrmSystem.dao.StaffDB;
 import kosa.hrmSystem.employees.Employee;
 import kosa.hrmSystem.employees.GeneralEmployee;
 import kosa.hrmSystem.employees.JobSeeker;
+import kosa.hrmSystem.enums.StateType;
 import kosa.hrmSystem.hr.HumanResourceMg;
 
 public class Approval {
@@ -81,23 +82,28 @@ public class Approval {
 			System.out.println("결재 할 채용결재 건이 없습니다.");
 			return;
 		}
-
+		System.out.println("++++++++ 1차 합격자 명단 ++++++++");
 		for (int i = 0; i<recruitmentApprovalCase.size();i++){
 			JobSeeker jobSeeker = recruitmentApprovalCase.get(i);
 			System.out.println((i+1)+") "+"ID: "+jobSeeker.getJobSeekerId()+" 이름: "+jobSeeker.getName()+" 지원날짜: "+jobSeeker.getApplyDate()+" (합/불): "+jobSeeker.getIsPass());
 		}
-
-		System.out.print("합격시킬 아이디 공백을 기준으로 입력: ");
+		System.out.println("++++++++ +++++++++++++ ++++++++");
+		System.out.println("\n");
+		System.out.print("합격시킬 후보자 순번을 공백을 기준으로 입력: ");
 		String id = sc.nextLine();
-
+		System.out.println();
+		System.out.println("++++++++ 채용자 명단 ++++++++");
 		String[] arr = id.strip().split(" ");
 		for (String i : arr){
-			JobSeeker e = recruitmentApprovalCase.get(Integer.parseInt(i));
+			JobSeeker e = recruitmentApprovalCase.get(Integer.parseInt(i)-1);
+			e.setIsPass(StateType.commit);
 			db.readDB().add(new GeneralEmployee(e.getName()));
+			System.out.println("지원자ID: "+e.getJobSeekerId()+" 지원자 이름: "+e.getName()+" (불/합): "+e.getIsPass());
 		}
 	}
 
 	public List<JobSeeker> getRecruitmentApprovalCase() {
+
 		return recruitmentApprovalCase;
 	}
 }

@@ -81,8 +81,7 @@ public class MainTest {
                 case "1":
                     humanResourceMg.hrUpdate();
                     break;
-                    
-                // 채용추가해야함 - 영진햄 헬프
+
                 case "2":
                     System.out.println("+++++++++ 지원자 명단 +++++++++");
                     recruitmentMg.jobSeekerSearch();
@@ -109,6 +108,7 @@ public class MainTest {
                         }
                     }
                     break;
+
                 case "3":
                     // 
                     break;
@@ -168,6 +168,10 @@ public class MainTest {
         while (true) {
             System.out.println(" 1.인사결재  2.급여결재 3.채용결재 4.퇴근 ");
             String executilInput = sc.nextLine();
+            if (executilInput.equals("3")) {
+                approval.recruitmentApproval();
+                break;
+            }
             if (executilInput.equals("4")) {
                 attendanceMg.endWork(user.getEmployeeId());
                 break;

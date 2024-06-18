@@ -28,7 +28,7 @@ public class Approval {
 		this.salaryApprovalCase = new LinkedList<Employee>();
 		this.recruitmentApprovalCase = new LinkedList<JobSeeker>();
 		this.db=db;
-		System.out.println("오늘의 결재 : 인사 " + hrApprovalCase.size()+"건 채용"+ recruitmentApprovalCase.size() + "건");
+		
 	}
 
 	// method
@@ -100,4 +100,22 @@ public class Approval {
 	public List<JobSeeker> getRecruitmentApprovalCase() {
 		return recruitmentApprovalCase;
 	}
+
+	public List<Employee> getSalaryApprovalCase() {
+		return salaryApprovalCase;
+	}
+
+	public void setSalaryApprovalCase(List<Employee> salaryApprovalCase) {
+		this.salaryApprovalCase = salaryApprovalCase;
+	}
+
+	public List<Employee> getHrApprovalCase() {
+		return hrApprovalCase;
+	}
+
+	public void setRecruitmentApprovalCase(List<JobSeeker> recruitmentApprovalCase) {
+		this.recruitmentApprovalCase = recruitmentApprovalCase;
+	}
+	
+	
 }

@@ -85,7 +85,7 @@ public class MainTest {
                 // 채용추가해야함 - 영진햄 헬프  
                 
                 case "3":
-                    // 
+                    
                     break;
                 default:
                     System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
@@ -141,7 +141,7 @@ public class MainTest {
         // 1.인사결재  2.급여결재 3.채용결재 4.퇴근 
         
         while (true) {
-            System.out.println(" 1.인사결재  2.급여결재 3.채용결재 4.퇴근 ");
+            System.out.println("1.인사결재  2.급여결재 3.채용결재 4.퇴근 ");
             String executilInput = sc.nextLine();
             if (executilInput.equals("4")) {
                 attendanceMg.endWork(user.getEmployeeId());

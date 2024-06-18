@@ -29,7 +29,7 @@ public class StaffDB {
 		employeeList.get(0).setBusinessTripState(StateType.pending);
 		employeeList.get(0).setCompanyLevel(CompanyLevel.am);
 		employeeList.get(1).setCompanyLevel(CompanyLevel.clerk);
-		employeeList.get(0).setCompanyLevel(CompanyLevel.gm);
+		employeeList.get(2).setCompanyLevel(CompanyLevel.gm);
 		
 		
 	}

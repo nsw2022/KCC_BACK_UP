@@ -26,14 +26,16 @@ public class StaffDB {
 		employeeList.add(new HrStaff("³ë½Â¿ì","aaa","1234"));
 		employeeList.add(new GeneralEmployee("±è¿µÁø","bbb","1234"));
 		employeeList.add(new Executives("ÀÌÁöÈÆ","ccc","1234"));
-		employeeList.get(0).setBusinessTripState(StateType.pending);
+		employeeList.get(0).setVacationState(StateType.pending);
 		employeeList.get(0).setCompanyLevel(CompanyLevel.am);
 		employeeList.get(1).setCompanyLevel(CompanyLevel.clerk);
 		employeeList.get(2).setCompanyLevel(CompanyLevel.gm);
 		
+		employeeList.get(2).setWorkOutsideState(StateType.pending);
+		
 		employeeList.add(new Executives("±èÁö","zzz","1234"));
 		employeeList.get(3).setCompanyLevel(CompanyLevel.gm);
-		employeeList.get(3).setWorkOutsideState(StateType.pending);
+		
 		
 		employeeList.add(new Executives("¿ëÅÃ","yyy","1234"));
 		employeeList.get(4).setCompanyLevel(CompanyLevel.gm);

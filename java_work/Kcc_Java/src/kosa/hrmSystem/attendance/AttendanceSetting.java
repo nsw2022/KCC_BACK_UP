@@ -1,6 +1,7 @@
 package kosa.hrmSystem.attendance;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -41,101 +42,80 @@ public class AttendanceSetting {
 				business.add(i);
 			}
 		}
-
-		System.out.println("1.휴가처리  2.외근처리  3.출장처리  4.뒤로가기");
-
-		while (true) {
-			String str = sc.nextLine();
-			switch (str) {
-			case "1":
-				processVacation(allEmployee, vacation);
-				break;
-			case "2":
-				processWorkQust(allEmployee, workQust);
-				break;
-			case "3":
-				processBusiness(allEmployee, business);
-				break;
-			case "4":
-				return;
-			default:
-				System.out.println("잘못누르셨습니다.");
-				break;
-			}
-		}
-	}
-
-	private void processVacation(List<Employee> allEmployee, List<Integer> vacation) {
-		System.out.println("휴가 상태 처리:");
-		System.out.println("1.승낙  2.거절 3.뒤로가기");
-		for (int index : vacation) {
-			System.out.println(index);
-			Employee employee = allEmployee.get(index);
-			System.out.println(employee.getName() + "의 휴가를 처리합니다.");
-			while (true) {
-
-				String str = sc.nextLine();
-				if (str.equals("1")) {
-					employee.setVacationState(StateType.commit);
-					System.out.println(employee.getName() + "의 휴가가 승인되었습니다.");
-					break;
-				} else if (str.equals("2")) {
-					employee.setVacationState(StateType.reject);
-					System.out.println(employee.getName() + "의 휴가가 거절되었습니다.");
-					break;
-				} else if (str.equals("3")) {
-					return;
-				} else {
-					System.out.println("잘못된 입력입니다. 다시 선택해 주세요.");
+		System.out.println(vacation.size());
+		System.out.println("1.휴가승인 "+vacation.size() +"건\t\t2.외근승인 "+workQust.size()+ "건\t\t3.출장승인"+business.size()+"건");
+		String str = sc.nextLine();
+		switch (str) {
+		case "1":
+			if(vacation.size()==0) System.out.println("휴가 신청 건이 없습니다.");
+			for (int i = 0; i < allEmployee.size(); i++) {
+				Employee employee = allEmployee.get(i);
+				if (employee.getVacationState() != null && employee.getVacationState().equals(StateType.pending)) {
+					System.out.println( employee.getName() + "님의 휴가신청");
+					System.out.println("1.승인\t\t2.거절\t\t3.뒤로가기");
+					String userInput = sc.nextLine();
+					if (userInput.equals("1")) {
+						employee.setVacationState(StateType.commit);
+						employee.toString();
+						vacation.clear();
+					}else if(userInput.equals("2")) {
+						employee.setVacationState(StateType.reject);
+						vacation.clear();
+					}else if(userInput.equals("3")) {
+						return;
+					}
 				}
 			}
-		}
-	}
-
-	private void processWorkQust(List<Employee> allEmployee, List<Integer> workQust) {
-		System.out.println("외근 상태 처리:");
-		for (int index : workQust) {
-			Employee employee = allEmployee.get(index);
-			System.out.println(employee.getName() + "의 외근을 처리합니다.");
-			while (true) {
-				System.out.println("1.승낙  2.거절");
-				String str = sc.nextLine();
-				if (str.equals("1")) {
-					employee.setWorkOutsideState(StateType.commit);
-					System.out.println(employee.getName() + "의 외근이 승인되었습니다.");
-					break;
-				} else if (str.equals("2")) {
-					employee.setWorkOutsideState(StateType.reject);
-					System.out.println(employee.getName() + "의 외근이 거절되었습니다.");
-					break;
-				} else {
-					System.out.println("잘못된 입력입니다. 다시 선택해 주세요.");
+			System.out.println("--------------------------------------");
+			break;
+		case "2":
+			if(workQust.size()==0) System.out.println("외근 신청 건이 없습니다.");
+			for (int i = 0; i < allEmployee.size(); i++) {
+				Employee employee = allEmployee.get(i);
+				if (employee.getWorkOutsideState() != null && employee.getWorkOutsideState().equals(StateType.pending)) {
+					System.out.println( employee.getName() + "님의 외근신청");
+					System.out.println("1.승인\t\t2.거절\t\t3.뒤로가기");
+					String userInput = sc.nextLine();
+					if (userInput.equals("1")) {
+						employee.setWorkOutsideState(StateType.commit);
+						employee.toString();
+						vacation.clear();
+					}else if(userInput.equals("2")) {
+						employee.setWorkOutsideState(StateType.reject);
+						vacation.clear();
+					}else if(userInput.equals("3")) {
+						return;
+					}
 				}
 			}
-		}
-	}
-
-	private void processBusiness(List<Employee> allEmployee, List<Integer> business) {
-		System.out.println("출장 상태 처리:");
-		for (int index : business) {
-			Employee employee = allEmployee.get(index);
-			// 여기서 출장을 처리
-			System.out.println(employee.getName() + "의 출장을 처리합니다.");
-			while (true) {
-				System.out.println("1.승낙  2.거절");
-				String str = sc.nextLine();
-				if (str.equals("1")) {
-					employee.setBusinessTripState(StateType.commit);
-					System.out.println(employee.getName() + "의 외근이 승인되었습니다.");
-					break;
-				} else if (str.equals("2")) {
-					employee.setBusinessTripState(StateType.reject);
-					System.out.println(employee.getName() + "의 외근이 거절되었습니다.");
-					break;
-				} else {
-					System.out.println("잘못된 입력입니다. 다시 선택해 주세요.");
+			System.out.println("--------------------------------------");
+			break;
+		case "3":
+			if(business.size()==0) System.out.println("출장 신청 건이 없습니다.");
+			for (int i = 0; i < allEmployee.size(); i++) {
+				Employee employee = allEmployee.get(i);
+				if (employee.getBusinessTripState() != null && employee.getBusinessTripState().equals(StateType.pending)) {
+					System.out.println( employee.getName() + "님의 휴가신청");
+					System.out.println("1.승인\t\t2.거절\t\t3.뒤로가기");
+					String userInput = sc.nextLine();
+					if (userInput.equals("1")) {
+						employee.setBusinessTripState(StateType.commit);
+						employee.toString();
+						vacation.clear();
+					}else if(userInput.equals("2")) {
+						employee.setBusinessTripState(StateType.reject);
+						vacation.clear();
+					}else if(userInput.equals("3")) {
+						return;
+					}
 				}
 			}
+			System.out.println("--------------------------------------");
+			break;
+
+		default:
+			System.out.println("잘못 입력 하셨습니다.");
+			break;
 		}
 	}
 

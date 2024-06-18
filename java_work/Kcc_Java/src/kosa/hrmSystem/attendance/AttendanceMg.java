@@ -95,13 +95,13 @@ public class AttendanceMg {
 		for (Employee employee : allEmployee) {
 			if (employee.getEmployeeId().equals(userId)) {
 				if (employee.getVacationState() != null) {
-					System.out.println("Vacation State: " + employee.getVacationState());
+					System.out.println("휴가 상태 : " + employee.getVacationState());
 				}
 				if (employee.getWorkOutsideState() != null) {
-					System.out.println("Work Outside State: " + employee.getWorkOutsideState());
+					System.out.println("외근 상태: " + employee.getWorkOutsideState());
 				}
 				if (employee.getBusinessTripState() != null) {
-					System.out.println("Business Trip State: " + employee.getBusinessTripState());
+					System.out.println("출장 상태: " + employee.getBusinessTripState());
 				}
 				
 			}

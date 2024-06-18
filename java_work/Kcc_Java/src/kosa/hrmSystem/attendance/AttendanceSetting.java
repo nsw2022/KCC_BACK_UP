@@ -29,13 +29,15 @@ public class AttendanceSetting {
 		List<Integer> business = new ArrayList<>(); // 출장번째 인덱스
 
 		for (int i = 0; i < allEmployee.size(); i++) {
-			if (allEmployee.get(i).getVacationState().equals(StateType.pending)) {
+			Employee employee = allEmployee.get(i);
+
+			if (employee.getVacationState() != null && employee.getVacationState().equals(StateType.pending)) {
 				vacation.add(i);
 			}
-			if (allEmployee.get(i).getWorkOutsideState().equals(StateType.pending)) {
+			if (employee.getWorkOutsideState() != null && employee.getWorkOutsideState().equals(StateType.pending)) {
 				workQust.add(i);
 			}
-			if (allEmployee.get(i).getBusinessTripState().equals(StateType.pending)) {
+			if (employee.getBusinessTripState() != null && employee.getBusinessTripState().equals(StateType.pending)) {
 				business.add(i);
 			}
 		}
@@ -45,31 +47,48 @@ public class AttendanceSetting {
 		while (true) {
 			String str = sc.nextLine();
 			switch (str) {
-				case "1":
-					processVacation(allEmployee, vacation);
-					break;
-				case "2":
-					processWorkQust(allEmployee, workQust);
-					break;
-				case "3":
-					processBusiness(allEmployee, business);
-					break;
-				case "4":
-					return;
-				default:
-					System.out.println("잘못누르셨습니다.");
-					break;
+			case "1":
+				processVacation(allEmployee, vacation);
+				break;
+			case "2":
+				processWorkQust(allEmployee, workQust);
+				break;
+			case "3":
+				processBusiness(allEmployee, business);
+				break;
+			case "4":
+				return;
+			default:
+				System.out.println("잘못누르셨습니다.");
+				break;
 			}
 		}
 	}
 
 	private void processVacation(List<Employee> allEmployee, List<Integer> vacation) {
 		System.out.println("휴가 상태 처리:");
+		System.out.println("1.승낙  2.거절 3.뒤로가기");
 		for (int index : vacation) {
+			System.out.println(index);
 			Employee employee = allEmployee.get(index);
-			// 여기서 휴가 처리를 수행
 			System.out.println(employee.getName() + "의 휴가를 처리합니다.");
-			// 예: employee.setVacationState(StateType.approved);
+			while (true) {
+
+				String str = sc.nextLine();
+				if (str.equals("1")) {
+					employee.setVacationState(StateType.commit);
+					System.out.println(employee.getName() + "의 휴가가 승인되었습니다.");
+					break;
+				} else if (str.equals("2")) {
+					employee.setVacationState(StateType.reject);
+					System.out.println(employee.getName() + "의 휴가가 거절되었습니다.");
+					break;
+				} else if (str.equals("3")) {
+					return;
+				} else {
+					System.out.println("잘못된 입력입니다. 다시 선택해 주세요.");
+				}
+			}
 		}
 	}
 
@@ -77,9 +96,22 @@ public class AttendanceSetting {
 		System.out.println("외근 상태 처리:");
 		for (int index : workQust) {
 			Employee employee = allEmployee.get(index);
-			// 여기서 외근 처리를 수행
 			System.out.println(employee.getName() + "의 외근을 처리합니다.");
-			// 예: employee.setWorkOutsideState(StateType.approved);
+			while (true) {
+				System.out.println("1.승낙  2.거절");
+				String str = sc.nextLine();
+				if (str.equals("1")) {
+					employee.setWorkOutsideState(StateType.commit);
+					System.out.println(employee.getName() + "의 외근이 승인되었습니다.");
+					break;
+				} else if (str.equals("2")) {
+					employee.setWorkOutsideState(StateType.reject);
+					System.out.println(employee.getName() + "의 외근이 거절되었습니다.");
+					break;
+				} else {
+					System.out.println("잘못된 입력입니다. 다시 선택해 주세요.");
+				}
+			}
 		}
 	}
 
@@ -89,7 +121,21 @@ public class AttendanceSetting {
 			Employee employee = allEmployee.get(index);
 			// 여기서 출장을 처리
 			System.out.println(employee.getName() + "의 출장을 처리합니다.");
-			// 예: employee.setBusinessTripState(StateType.approved);
+			while (true) {
+				System.out.println("1.승낙  2.거절");
+				String str = sc.nextLine();
+				if (str.equals("1")) {
+					employee.setBusinessTripState(StateType.commit);
+					System.out.println(employee.getName() + "의 외근이 승인되었습니다.");
+					break;
+				} else if (str.equals("2")) {
+					employee.setBusinessTripState(StateType.reject);
+					System.out.println(employee.getName() + "의 외근이 거절되었습니다.");
+					break;
+				} else {
+					System.out.println("잘못된 입력입니다. 다시 선택해 주세요.");
+				}
+			}
 		}
 	}
 

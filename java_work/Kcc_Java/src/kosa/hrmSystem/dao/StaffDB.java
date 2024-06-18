@@ -31,7 +31,13 @@ public class StaffDB {
 		employeeList.get(1).setCompanyLevel(CompanyLevel.clerk);
 		employeeList.get(2).setCompanyLevel(CompanyLevel.gm);
 		
+		employeeList.add(new Executives("±Ë¡ˆ","zzz","1234"));
+		employeeList.get(3).setCompanyLevel(CompanyLevel.gm);
+		employeeList.get(3).setWorkOutsideState(StateType.pending);
 		
+		employeeList.add(new Executives("øÎ≈√","yyy","1234"));
+		employeeList.get(4).setCompanyLevel(CompanyLevel.gm);
+		employeeList.get(4).setBusinessTripState(StateType.pending);
 	}
 
 	public void createDB(String name,String employeeId,String employeePw) {

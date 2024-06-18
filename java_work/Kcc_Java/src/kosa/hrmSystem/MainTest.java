@@ -3,6 +3,7 @@ package kosa.hrmSystem;
 import java.util.Scanner;
 
 import kosa.hrmSystem.attendance.AttendanceMg;
+import kosa.hrmSystem.attendance.AttendanceSetting;
 import kosa.hrmSystem.dao.StaffDB;
 import kosa.hrmSystem.employees.Employee;
 import kosa.hrmSystem.employees.Executives;
@@ -23,6 +24,7 @@ public class MainTest {
         AttendanceMg attendanceMg = new AttendanceMg(db);
         Approval approval = new Approval(db);
         RecruitmentMg recruitmentMg = new RecruitmentMg(approval);
+        AttendanceSetting attendanceSetting = new AttendanceSetting(db);
 
         while (true) {
             System.out.println("1. 로그인   2.채용지원   3.근태기록 조회   4. 종료");
@@ -37,7 +39,7 @@ public class MainTest {
                     Employee user = Login.login(db);
                     if (user != null) {
                         if (user instanceof HrStaff) {
-                            hrStaffMenu(sc,recruitmentMg, humanResourceMg, attendanceMg, user);
+                            hrStaffMenu(sc,recruitmentMg, humanResourceMg, attendanceMg, attendanceSetting,user);
                         } else if (user instanceof GeneralEmployee) {
                             generalEmployeeMenu(sc, attendanceMg, user);
                         } else if (user instanceof Executives) {
@@ -68,7 +70,7 @@ public class MainTest {
     */
 
     // 인사과 직원기능 모아놓음
-    private static void hrStaffMenu(Scanner sc,RecruitmentMg recruitmentMg, HumanResourceMg humanResourceMg, AttendanceMg attendanceMg, Employee user) {
+    private static void hrStaffMenu(Scanner sc,RecruitmentMg recruitmentMg, HumanResourceMg humanResourceMg, AttendanceMg attendanceMg,AttendanceSetting attendanceSetting,Employee user) {
         attendanceMg.startWork(user.getEmployeeId()); // 출근
         while (true) {
             System.out.println("1. 인사과 편집   2. 채용   3. 근태관리   4. 퇴근");
@@ -110,7 +112,7 @@ public class MainTest {
                     }
                     break;
                 case "3":
-                    
+                	attendanceSetting.attendanceApproval();
                     break;
                 default:
                     System.out.println("잘못된 입력입니다. 다시 시도해주세요.");

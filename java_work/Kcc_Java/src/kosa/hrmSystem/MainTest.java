@@ -151,11 +151,14 @@ public class MainTest {
         }
         
     }
-
+    
+    // 임원 기능 처리
     private static void handleexEcutivesInput(String executilInput, AttendanceMg attendanceMg,Approval approval ,HumanResourceMg humanResourceMg,Employee user) {
 		switch (executilInput) {
 		case "1":
 			approval.hrApproval(humanResourceMg);
+			break;
+		case "2":
 			break;
 
 		 default:

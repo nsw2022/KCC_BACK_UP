@@ -12,6 +12,8 @@ import kosa.hrmSystem.employees.Employee;
 import kosa.hrmSystem.employees.Executives;
 import kosa.hrmSystem.employees.GeneralEmployee;
 import kosa.hrmSystem.employees.HrStaff;
+import kosa.hrmSystem.enums.CompanyLevel;
+import kosa.hrmSystem.enums.DepartmentType;
 import kosa.hrmSystem.enums.StateType;
 
 public class StaffDB {
@@ -22,9 +24,14 @@ public class StaffDB {
 	public StaffDB() {
 		employeeList=new ArrayList<Employee>();
 		employeeList.add(new HrStaff("³ë½Â¿ì","aaa","1234"));
-		employeeList.add(new GeneralEmployee("³ë½Â·Ö","bbb","1234"));
+		employeeList.add(new GeneralEmployee("±è¿µÁø","bbb","1234"));
 		employeeList.add(new Executives("ÀÌÁöÈÆ","ccc","1234"));
 		employeeList.get(0).setBusinessTripState(StateType.pending);
+		employeeList.get(0).setCompanyLevel(CompanyLevel.am);
+		employeeList.get(1).setCompanyLevel(CompanyLevel.clerk);
+		employeeList.get(0).setCompanyLevel(CompanyLevel.gm);
+		
+		
 	}
 
 	public void createDB(String name,String employeeId,String employeePw) {

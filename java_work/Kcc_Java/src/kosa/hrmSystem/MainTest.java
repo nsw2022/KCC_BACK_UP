@@ -41,7 +41,7 @@ public class MainTest {
                         } else if (user instanceof GeneralEmployee) {
                             generalEmployeeMenu(sc, attendanceMg, user);
                         } else if (user instanceof Executives) {
-                            executivesMenu(approval, humanResourceMg, attendanceMg, user);
+                            executivesMenu(sc, approval, humanResourceMg, attendanceMg, user);
                         }
                     } else {
                         System.out.println("로그인 실패. 다시 시도해주세요.");
@@ -136,13 +136,36 @@ public class MainTest {
     }
 
     //임원 모음
-    private static void executivesMenu(Approval approval, HumanResourceMg humanResourceMg, AttendanceMg attendanceMg, Employee user) {
+    private static void executivesMenu(Scanner sc ,Approval approval, HumanResourceMg humanResourceMg, AttendanceMg attendanceMg, Employee user) {
         attendanceMg.startWork(user.getEmployeeId());
-        approval.hrApproval(humanResourceMg); // 세상깨짐 ㅠ
+        // 1.인사결재  2.급여결재 3.채용결재 4.퇴근 
+        
+        while (true) {
+            System.out.println(" 1.인사결재  2.급여결재 3.채용결재 4.퇴근 ");
+            String executilInput = sc.nextLine();
+            if (executilInput.equals("4")) {
+                attendanceMg.endWork(user.getEmployeeId());
+                break;
+            }
+            handleexEcutivesInput(executilInput, attendanceMg, approval,humanResourceMg ,user); // 임원직원 매니저같은느낌
+        }
         
     }
 
-    // 채용쪽 프로세스
+    private static void handleexEcutivesInput(String executilInput, AttendanceMg attendanceMg,Approval approval ,HumanResourceMg humanResourceMg,Employee user) {
+		switch (executilInput) {
+		case "1":
+			approval.hrApproval(humanResourceMg);
+			break;
+
+		 default:
+             System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
+             break;
+		}
+		
+	}
+
+	// 채용쪽 프로세스
     private static void jobApplicationProcess(Scanner sc, RecruitmentMg recruitmentMg) {
         System.out.print("이름을 입력해주세요: ");
         String jobSeekerName = sc.nextLine();

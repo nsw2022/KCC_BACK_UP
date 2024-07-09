@@ -30,7 +30,7 @@ public class MainTest {
 		SalaryPrint sp = new SalaryPrint(db);
 
 		while (true) {
-			System.out.println("1.로그인\t\t2.채용지원\t\t3.근태기록 조회\t\t4.종료");
+			System.out.println("1.로그인\t\t2.채용지원\t\t4.종료");
 			System.out.print(">입력 : ");
 			String str = sc.nextLine();
 
@@ -57,10 +57,10 @@ public class MainTest {
 				// 채용지원
 				jobApplicationProcess(sc, recruitmentMg);
 				break;
-//			case "3":
-//				// 얘는 여따가 두변안되긴하는데 임시 근태
-//				attendanceMg.printAttendanceRecords();
-//				break;
+			case "4":
+				// 얘는 여따가 두변안되긴하는데 임시 근태
+				attendanceMg.printAttendanceRecords();
+				break;
 			default:
 				System.out.println("잘못된 입력입니다. 다시 시도해주세요.");
 				break;

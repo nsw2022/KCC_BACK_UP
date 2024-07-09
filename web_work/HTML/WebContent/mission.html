@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+.cards {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.cards .red {
+	background-color: #f43f5e;
+}
+
+.cards .blue {
+	background-color: #3b82f6;
+}
+
+.cards .green {
+	background-color: #22c55e;
+}
+
+.cards .card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	height: 100px;
+	width: 250px;
+	border-radius: 10px;
+	color: white;
+	cursor: pointer;
+	transition: 400ms;
+}
+
+.cards .card p.tip {
+	font-size: 1em;
+	font-weight: 700;
+}
+
+.cards .card p.second-text {
+	font-size: .7em;
+}
+
+.cards .card:hover {
+	transform: scale(1.1, 1.1);
+}
+
+
+
+.shadow{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    width: 350px;
+    padding: 8px;
+    margin: 16px 0px;
+}
+.shadow2{
+ box-shadow:rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    width: 350px;
+    padding: 8px;
+    margin: 16px 0px;
+    
+}
+
+
+p.positive{text-indent: 1cm;}
+p.negative{text-indent: -5px;}
+
+#none {text-decoration: none;}
+#underline {text-decoration: underline;}
+#overline {text-decoration: overline;}
+#line-through {text-decoration: line-through;}
+#blink {text-decoration: blink;}
+
+.button2 {
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #090909;
+    padding: 0.7em 1.7em;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .button2:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+  }
+  
+  .button2:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+  }
+  
+  .button2:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #009087;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+  }
+  
+  .button2:hover {
+    color: #ffffff;
+    border: 1px solid #009087;
+  }
+  
+  .button2:hover:before {
+    top: -35%;
+    background-color: #009087;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+  
+  .button2:hover:after {
+    top: -45%;
+    background-color: #009087;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+  }
+  
+  #nth_test li:nth-child(2n){
+  	color: orange;
+  }
+</style>
+<body>
+	<h1>방송에 관심 있는 새내기 여러분, 환영합니다!</h1>
+	<p>
+		교내 방송국에서 신입생을 대상으로 <span>수습 국원</span>을 모집합니다. 학부나 전공에 상관없이 방송에 관심이 있는 모든 학우들의 지원을 바랍니다.
+	</p>
+
+	<h2>모집 기간 및 방법</h2>
+	<p>
+		<strong>모집 기간:</strong> 3월 2일부터 3월 11일까지
+	</p>
+	<p>
+		<strong>모집 분야:</strong> 아나운서, PD, 엔지니어
+	</p>
+	<p>
+		<strong>지원 방법:</strong> 지원서 양식 작성 후 이메일로 접수
+	</p>
+	<p style="letter-spacing: 5px;">
+		지원서 양식은 <a href="#">교내 방송국 홈페이지 공지 게시판</a>에서 다운로드할 수 있습니다.
+	</p>
+	
+	<p class="positive">
+		text-indent 속성은 text-block속<br>
+		첫 라인의 들여쓰기를 조정합니다.<br>
+		속성 값에 양수를 사용합니다.
+	</p>
+	
+	<p class="negative">
+		text-indent 속성은 text-block속<br>
+		첫 라인의 들여쓰기를 조정합니다.<br>
+		속성 값에 음수를 사용합니다.
+	</p>
+	<div id="none">default text</div>
+	<div id="underline">underline text</div>
+	<div id="overline">overline text</div>
+	<div id="line-through">line-through text</div>
+	<div id="blink">blink text</div>
+	
+	<p style="text-transform: uppercase;">
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et esse labore asperiores quas vitae voluptas magni vero minima error, id quae adipisci aliquid aut quisquam sed quam laudantium, ipsam libero?
+	</p>
+	<img src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170421_48%2F1492783705377lFeha_JPEG%2F186371633844697_0.jpeg" alt="오긴함?"  
+	style="
+	display: inline-block;"/>
+	
+	<div style="background-image: url('/HTML/images/bg3.jpg');
+						width: 300px; height: 300px"></div>
+						
+						
+	<ul id="nth_test">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+
+	<div class="shadow">
+		<h2>혜택</h2>
+		<ul>
+			<li>수습기자 활동 중 소정의 활동비 지급</li>
+			<li>정기자로 진급 시 장학금 지급</li>
+		</ul>
+	</div>
+	
+	<div class="shadow2">
+	<h2>혜택2</h2>
+		<ul>
+			<li>수습기자 활동 중 소정의 활동비 지급</li>
+			<li>정기자로 진급 시 장학금 지급</li>
+		</ul>
+	</div>
+
+	<div class="cards" style="padding-bottom: 16px">
+		<div class="card red">
+			<p class="tip">모집 기간:</p>
+			<p class="second-text">3월 2일부터 3월 11일까지</p>
+		</div>
+		<div class="card blue">
+			<p class="tip">모집 분야:</p>
+			<p class="second-text">아나운서, PD, 엔지니어</p>
+		</div>
+		<div class="card green">
+			<p class="tip">지원 방법:</p>
+			<p class="second-text">지원서 양식 작성 후 이메일로 접수</p>
+		</div>
+	</div>
+	
+	<button class="button2">눌러줘요</button>
+	
+	
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>기본 정보 입력</h3>
+
+	<form action="" method="get">
+		<table border="1">
+			<tr>
+				<td><b>이름</b></td>
+				<td><input type="text" name="name" /></td>
+			</tr>
+			<tr>
+				<td><b>아이디</b></td>
+				<td><input type="text" name="id" /> <input type="button" value="중복체크" /></td>
+			</tr>
+			<tr>
+				<td><b>비밀번호</b></td>
+				<td><input type="password" name="pw" /></td>
+			</tr>
+			<tr>
+				<td><b>비밀번호 확인</b></td>
+				<td><input type="password" name="pw2" /></td>
+			</tr>
+			<tr>
+				<td><b>이메일</b></td>
+				<td><input type="text" name="email" /> @ <select name="last_email">
+						<option value="" selected="selected" disabled>선택하시오</option>
+						<option value="name">naver.com</option>
+						<option value="gmail">gmail.com</option>
+
+				</select></td>
+			</tr>
+			<tr>
+				<td><b>연락처</b></td>
+				<td><input type="text" name="phone" /></td>
+			</tr>
+			<tr>
+				<td><b>메일수신여부</b></td>
+				<td><input type="radio" name="mail" />받음 <input type="radio" name="mail" />받지 않음</td>
+			</tr>
+			<tr>
+				<td><b>관심 분야</b></td>
+				<td><input type="checkbox" name="subject" />자바 <input type="checkbox" name="subject" />C++ <input type="checkbox" name="subject" />파이썬 <input type="checkbox" name="subject" />안드로이드</td>
+			</tr>
+
+		</table>
+		<input type="button" value="취소" /> <input type="submit" value="전송" />
+	</form>
+
+</body>
+</html>

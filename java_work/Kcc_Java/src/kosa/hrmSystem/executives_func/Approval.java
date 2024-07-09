@@ -47,6 +47,7 @@ public class Approval {
 			cnt++;
 		}
 		cnt = 0;
+		
 		System.out.println();
 		System.out.print("승인 할 사람의 번호를 공백으로 구분하여 입력하세요:");
 		String num = sc.nextLine();

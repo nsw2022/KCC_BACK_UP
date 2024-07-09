@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Attribute Selectors Example</title>
+    <style>
+        [data-type="external"] {
+            color: blue;
+        }
+        [href^="http"] {
+            font-weight: bold;
+        }
+        [title*="info"] {
+            background-color: yellow;
+        }
+        [title] {color: blue; font-weight: bold;}
+		[title="two"] {border: 2px solid black;}
+		p[title="two"] {color: red;}
+		p[title~="second"] {background: silver;}
+		p[class^="second"] {background: aqua;}
+		p[class$="wrap"] {color: deeppink; font-weight: bold;}
+		[class*="three"] {background: yellow;}
+		[class|="second"] {border: 2px dotted black;}
+    </style>
+</head>
+<body>
+    <h1>CSS 속성 선택자 예시</h1>
+    <a href="http://example.com" data-type="external" title="More info here">Visit Example.com</a>
+    <p title="Detailed info about CSS">This paragraph contains more information about CSS.</p>
+    <a href="/internal-link" title="internal info">Internal Link</a>
+    <div title="one">selector[attribute name]</div>
+	<div title="two">selector[attribute name=value]</div>
+	<p title="two">selector[attribute name=value]</p>
+	<p title="first second third">selector[attribute name~=value]</p>
+	<p class="second-container">selector[attribute name^=value]</p>
+	<p class="second-wrap">selector[attribute name$=value]</p>
+	<div class="one-two-three">selector[attribute name|=value]</div>
+</body>
+</html>

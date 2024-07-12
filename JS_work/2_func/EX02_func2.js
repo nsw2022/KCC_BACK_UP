@@ -34,6 +34,8 @@ console.log(greeting(' 홍길동'))
 var greeting2 = name=>{
   return `Hello ${name}`
 }
+var greeting3 = name=> `Hello ${name}`
+
 console.log(greeting2('박길동'))
 
 function multiply(x) {

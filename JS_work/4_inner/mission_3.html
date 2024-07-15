@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function setRandomImage() {
+      const list = [
+        '../images/bg-cta.jpg',
+        '../images/bg-top.jpg',
+        '../images/bg1.jpg',
+        '../images/bg2.jpg',
+        '../images/bg3.jpg',
+        '../images/bg4.jpg',
+      ];
+      const img = document.getElementById('img');
+      const rnd = Math.floor(Math.random() * list.length);
+      img.src = list[rnd];
+    }
+
+    window.onload = function() {
+      setRandomImage();
+      setInterval(setRandomImage, 100);
+    }
+  </script>
+
+</head>
+<body>
+  <img  id="img" src="" alt="">
+</body>
+</html>

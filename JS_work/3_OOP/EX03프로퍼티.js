@@ -32,9 +32,9 @@ console.log(testObj.__proto__ == Object.prototype)
 console.log(yuJin.toString())
 console.log(Object.prototype.toString())
 
-console.log(IdolModel.__proto__ === Function.prototype)
-console.log(Function.prototype.__proto__ == Object.prototype)
-console.log(IdolModel.prototype.__proto__ === Object.prototype)
+console.log(IdolModel.__proto__ === Function.prototype)//true
+console.log(Function.prototype.__proto__ === Object.prototype)//true
+console.log(IdolModel.prototype.__proto__ === Object.prototype)//true
 
 function IdolModel2(name, year) {
   this.name = name

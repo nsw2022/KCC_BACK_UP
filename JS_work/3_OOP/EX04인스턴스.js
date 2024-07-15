@@ -49,3 +49,4 @@ const eSeo = new FemaleIdolModel('이서', 2007)
 console.log(Object.getPrototypeOf(eSeo)===FemaleIdolModel.prototype)
 console.log(FemaleIdolModel.prototype === IdolModel.prototype)
 console.log(eSeo.sayHello())
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      window.onload = function () {
+        const links = document.getElementsByTagName("a"); //a태그 3개 배열로 가져오는 것
+        for (let i = 0; i < links.length; i++) {
+          links[i].onclick = function () {
+            //자신의 부모인 exam03의 window 객체를 가져온다! document안에는 fmt, 그 안에는 address 그안의 벨류
+            // this는 여기서 a태그를 뜻한다 3개중 하나 누르면 그 하나가 this
+            window.opener.document.fmt.address.value = this.innerHTML;
+            self.close();
+          };
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h2>주소 검색</h2>
+    <ul>
+      <li><a href="#">서울 강남구 대치동</a></li>
+      <li><a href="#">서울 종로구 명륜동</a></li>
+      <li><a href="#">경기도 화성시 능동</a></li>
+    </ul>
+  </body>
+</html>

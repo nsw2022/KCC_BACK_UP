@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    /**
+     *  (일반)함수 호출 => window
+     *  메서드 호출
+     *  생성자 함수 호출(객체 생성 함수)
+     *  apply/call/bind 호출
+     * 
+     */
+
+    let data = 10
+
+    function func() {
+      this.data = 20;
+      data = 30
+
+      console.log('1.data: '+data)//30
+      console.log('2.this.data: '+this.data)//20
+      console.log('2.window.data: ' + window.data)//10
+    }
+    func()
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

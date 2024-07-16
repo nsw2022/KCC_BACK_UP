@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		border: 1px solid;
+	}
+	#aa{
+		width: 300px;
+		height: 300px;
+		background: yellow;
+	}
+	
+	#bb{
+		width: 150px;
+		height: 150px;
+		margin-left: 80px;
+		margin-top: 40px;
+		background: green;
+    z-index: 100;
+	}
+	
+</style>
+
+<script type="text/javascript">
+	//aa클릭 => aa
+	//bb클릭 => bb
+  
+  function aaa() {
+    console.log('aaa')
+  }
+  
+  function bProcess(event) {
+    //이벤트 버블링 방지
+    event.stopPropagation();
+    // 이벤트 핸들러 함수는 첫번째 매개변수로 이벤트 객체를 받는다
+    console.log(event.target.value)
+    console.log('ddd: '+ event.target.value) // 요소만 나옴
+    console.log(this)
+    console.log(this.value) // 안나옴
+    console.log('나는 innerText'+event.srcElement.innerText) // 
+    console.log('bbb')
+  }
+	
+  window.onload = function(){
+    const aa =document.getElementById('aa')
+    const bb =document.getElementById('bb')
+    aa.addEventListener('click',aaa,false)
+    bb.addEventListener('click',bProcess,false)
+    
+  }
+	
+</script>
+</head>
+<body>
+	<div id="aa" >
+		aaaaaaaaaaa
+		<div id="bb" value="ddd">
+			bbbbbbbbb
+		</div>
+		aaaaaaaaaaa
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

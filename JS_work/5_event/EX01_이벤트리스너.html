@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function doProcess() {
+      //const result = document.getElementById('result')
+      const result = document.querySelector('#result')
+      result.innerHTML = '<span>이벤트결과</span>'
+    }
+
+    window.onload = function(){
+      const btn = document.getElementById('btn')
+      //btn.onclick = () => alert('이벤트 결과')
+      
+      // 이밴투 리스너 형식
+      btn.addEventListener('click',doProcess,false)
+      btn.addEventListener('click',() => alert('이벤트 결과'),false)
+    }
+
+  </script>
+</head>
+<body>
+  <div id="result"></div>
+  <input type="button" value="버튼1" onclick="doProcess()">&nbsp;&nbsp;
+  <input type="button" value="버튼2" id="btn">
+  <!-- <script>
+    const btn = document.getElementById('btn')
+    btn.onclick = () => alert('이벤트 결과')
+  </script> -->
+
+</body>
+</html>

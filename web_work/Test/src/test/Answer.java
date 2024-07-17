@@ -14,9 +14,8 @@ public class Answer {
 			purse2 += isPlus ? -num : num;
 			purse1 = Math.max(0, purse1);
 			purse2 = Math.max(0, purse2);
-			System.out.println(num+"\t\t"+purse2);
 			answer = Math.max(answer, Math.max(purse1, purse2));
-			isPlus = !isPlus;
+			isPlus = !isPlus;// 돌면서 true / fasle 리턴
 		}
 		System.out.println(answer);
 		 long endTime = System.nanoTime(); // 종료 시간 측정

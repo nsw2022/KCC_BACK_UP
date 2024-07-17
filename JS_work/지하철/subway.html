@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Document</title>
+        <meta charset="UTF-8" />
+    </head>
+
+    <body>
+        <label>출발역</label>
+        <select id="start"></select>
+        <label>도착역</label>
+        <select id="end"></select>
+        <label
+            ><input type="radio" name="group" value="ADULT" checked />
+            성인일반</label
+        >
+        <label><input type="radio" name="group" value="YOUNG" /> 청소년</label>
+        <label><input type="radio" name="group" value="CHILD" /> 어린이</label>
+        <div>
+            <button onclick="calculate();">요금계산</button>
+        </div>
+        <div
+            id="output"
+            style="
+                width: 100%;
+                height: 150px;
+                overflow-y: auto;
+                border: 2px solid #222;
+            "
+        ></div>
+        <script>
+            const subwayList = [
+                '영등포구청역',
+                '당산역',
+                '합정역',
+                '홍대입구역',
+                '신촌역',
+                '이대역',
+                '아현역',
+                '충정로역',
+                '시청역',
+                '을지로3가역',
+                '을지로4가역',
+                '동대문역사문화공원역',
+                '신당역',
+                '상왕십리역',
+                '왕십리역',
+                '한양대역',
+                '뚝섬역',
+                '성수역',
+                '건대입구역',
+                '구의역',
+                '강변역',
+                '잠실나루역',
+                '잠실역',
+                '종합운동장역',
+                '삼성역',
+                '선릉역',
+                '역삼역',
+                '강남역',
+                '서초역',
+                '방배역',
+                '사당역',
+                '낙성대역',
+                '서울대입구역',
+                '봉천역',
+                '신림역',
+                '신대방역',
+                '구로디지털단지역',
+                '대림역',
+                '신도림역',
+                '문래역',
+            ];
+
+            const intervalDistance = 3170; //역간 거리(고정)
+
+            /**
+             * 지하철 목록을 출발역과 도착역 select 태그에 추가합니다.
+             */
+            function loadSubways() {
+                var h = [];
+                for (var idx in subwayList) {
+                    h.push(
+                        `<option value="${idx}">${subwayList[idx]}</option>`,
+                    );
+                }
+
+                document.getElementById('start').innerHTML = h.join('');
+                document.getElementById('end').innerHTML = h.join('');
+            }
+
+            const resultInput = 0;
+            let peplo = {
+                ADULT: 1250,
+                YOUNG: 720,
+                CHILD: 450,
+            };
+
+            function calculate(event) {
+                const startIdx = document.getElementById('start').selectedIndex; // 출발역 인덱스
+                const endIdx = document.getElementById('end').selectedIndex; // 도착역 인덱스
+
+                const distance = endIdx - startIdx; // 출발역과 도착역 사이의 역 수
+                const totalDistance = distance * intervalDistance; // 총 이동 거리 계산
+
+                const ticketType = document.querySelector(
+                    'input[name="group"]:checked',
+                ).value; // 선택된 티켓 유형
+                const basePrice = peplo[ticketType]; // 기본 요금
+
+                /**
+                 * 1. 이동거리 10이내면 기본요금 출력
+                 * 2. 이동한거리 distance 값이 10부터5단위로 100원씩 추가
+                 * 3. 이동한 거리 50초과부터 8키로마다 100원 증가
+                 */
+                console.log(Math.floor(totalDistance/1000))
+                let totalPrice = distance * Math.floor(totalDistance/1000)// 거리계산 가격
+                let additionalCharge = 0 // 추가가격만 더해주려함
+                if (Math.floor(totalDistance/1000) <= 10) {
+                    totalPrice = distance * intervalDistance
+                    document.getElementById('output',).innerHTML = `이동거리${distance}  기본요금 ${basePrice}  총 요금은 ${totalPrice}원입니다.`;
+                } else if (Math.floor(totalDistance/1000) <= 50) {
+                    additionalCharge=Math.floor((distance-10)/5)*100
+                    totalPrice=totalPrice + additionalCharge
+                    document.getElementById('output',).innerHTML = `10초과 50이하<br>이동거리${distance}  기본요금 ${basePrice}  총 요금은 ${totalPrice}원입니다.`;
+                } else if (Math.floor(totalDistance/1000) > 50) {
+                    additionalCharge = (40 / 5) * 100 + Math.floor((distance - 50) / 8) * 100;
+                    totalPrice=totalPrice + additionalCharge
+                    document.getElementById('output',).innerHTML = `50초과 <br>이동거리${distance}  기본요금 ${basePrice}  총 요금은 ${totalPrice}원입니다.`;
+                }
+     
+
+                
+            }
+
+            window.addEventListener('load', function () {
+                loadSubways();
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="httpRequest.js">
+</script>
+<script type="text/javascript" >
+	function hello(){
+		const params = "name=" + encodeURIComponent(document.fmt.name.value);
+		
+		sendRequest("hello.jsp",params,helloRequest,"GET")
+	}
+	
+	// 서버로부터 데이터 값이 도착하면 자동으로 호출
+	// text, json, xml=>html로 변환
+	function helloRequest() {
+		if (httpRequest.readyState === 4) { 
+			if (httpRequest.status === 200) {
+				alert(httpRequest.responseText)
+			} else {
+				alert('요청 처리 실패'); // 에러 처리 메시지 추가
+			}
+		}
+	}
+	
+</script>
+</head>
+<body>
+
+	<form action="" name="fmt">
+		<input type="text" />
+		<input type="button" value="전송" onclick="hello()" />
+	</form>
+</body>
+</html>

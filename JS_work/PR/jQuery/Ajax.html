@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YouTube Video Gallery</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  #con .video-container {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+  }
+  .video-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .video-count {
+    
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  .video-iframe {
+    width: 300px;
+    height: 300px; 
+  }
+</style>
+</head>
+<body>
+<div id="con"></div>
+<script>
+$(function(){
+  $.ajax({
+    url: "https://nsw2022.github.io/WEBHOST/api-mini.html",
+    type: "GET",
+    dataType: "json",
+    success: function(data) {
+      for (let mem of data) {
+        var rr = $("<div class='video-container'></div>");
+        rr.append(`<div class='video-iframe'>${mem.video}</div>`);
+        rr.append(`<div class='video-count'>Views: ${mem.cnt}</div>`);
+        rr.append(`<div class='video-title'>${mem.title} by ${mem.name}</div>`);
+        $("#con").append(rr);
+      }
+    },
+    error: function(err) {
+      console.error("Error loading data: ", err);
+      $("#con").append("<p>Error loading video data.</p>");
+    }
+  });
+});
+</script>
+</body>
+</html>

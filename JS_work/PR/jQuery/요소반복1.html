@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <title>Document</title>
+  <script type="text/javascript">
+  $(function () {
+      var array = [
+      { name: 'Nextree',
+      link: 'http://www.nextree.co.kr' },
+      { name: 'KOSTA',
+      link: 'http://edu.kosta.or.kr' },
+      { name: 'Google',
+      link: 'http://www.google.co.kr' }
+      ];
+      var outHtml = '';
+      // array 배열을 탐색하며 outHtml 생성
+      $.each(array, function (index, item) {
+      outHtml += '<a href="' + item.link + '">';
+      outHtml += ' <h2>' + item.name + '</h2>';
+      outHtml += '</a>';
+      });
+      document.body.innerHTML = outHtml;
+    });
+  </script> 
+</head>
+<body>
+  
+</body>
+</html>

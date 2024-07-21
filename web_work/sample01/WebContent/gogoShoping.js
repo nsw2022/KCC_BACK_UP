@@ -1,8 +1,19 @@
-
 $(function () {
     // 체크박스와 수량 입력 필드의 변화 감지
     $('.inputbox, .cart-list-body input[type="number"]').change(function () {
         updateCartTotal();
+    });
+
+    // '삭제' 링크 클릭 이벤트 처리
+    $('.cart-list-body').on('click', '.cart-del', function (e) {
+        e.preventDefault();
+        const row = $(this).closest('tr');  // 삭제할 현재 행을 찾음
+        const nextRow = row.next('tr');     // 인접한 다음 행을 찾음
+
+        row.add(nextRow).fadeOut(400, function () { // 현재 행과 다음 행을 페이드 아웃
+            $(this).remove();              // 페이드 아웃된 행을 DOM에서 제거
+            updateCartTotal();             // 장바구니 총액 업데이트
+        });
     });
 
     function updateCartTotal() {
@@ -33,7 +44,4 @@ $(function () {
         // 구매 버튼의 텍스트 업데이트
         $('#total-button').text('구매하기 (' + totalCount + ')');
     }
-
-})
-
-
+});

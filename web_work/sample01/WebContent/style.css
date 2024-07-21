@@ -104,7 +104,7 @@ header {
     border: 0;
 }
 
-#cart-del {
+.cart-del {
     position: relative;
     right: -30%;
 }

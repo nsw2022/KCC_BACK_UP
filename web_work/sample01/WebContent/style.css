@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+/* 헤더시작 */
+
+header {
+    position: relative;
+    width: 980px;
+    height: 70px;
+
+    margin: 0 auto -1px;
+}
+
+#logo {
+    padding: 20px 0 10px;
+}
+
+#logo a {
+    display: block;
+    width: 140px;
+    height: 37px;
+    background: url(//img1a.coupangcdn.com/image/static/common/bg_gnb_sprite_20140122.png) no-repeat -988px -108px;
+}
+
+/* 헤더끝 */
+
+/* 섹션영역 시작 */
+.contents-cart {
+    position: relative;
+    width: 900px;
+    border: 1px solid #e0e0e0;
+    margin: 0 auto 70px;
+    padding: 40px 39px;
+    background: #fff;
+}
+
+.cart-title-wrapper {
+    display: flex;
+    position: relative;
+    height: 77px;
+}
+
+.cart-title-layout {
+    clear: both;
+    height: 45px;
+    margin-bottom: 0;
+    padding-bottom: 32px;
+    background: url("//img1a.coupangcdn.com/image/order/img_orderstep4.gif") no-repeat -38px -200px;
+    position: absolute;
+    background-position-x: -194px;
+    left: 196px;
+    width: 100%;
+}
+
+.tabs-wrap {
+    margin-bottom: 20px;
+    padding-top: 4px;
+    background: #fff;
+}
+
+.tabs {
+    display: flex;
+    width: 900px;
+    height: 50px;
+}
+
+.tabs span {
+    flex: 1;
+    box-sizing: border-box;
+    width: 300px;
+    line-height: 48px;
+    text-align: center;
+    color: #346aff;
+    font-size: 16px;
+    font-weight: 700;
+    border: 1px solid #346aff;
+    border-bottom: 0;
+    border-radius: 4px 4px 0 0;
+    background-color: #fff;
+}
+
+.inputbox {
+    position: relative;
+    top: 70px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: #346aff;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb24iPgo8cGF0aCBpZD0iJiMyNDA7JiMxNTk7JiMxNDI7JiMxNjg7IEljb24iIGQ9Ik0xMC40NTYzIDEuMjc2MzhDMTAuODA5NyAwLjkwNzU4OSAxMS4zODI0IDAuOTA3OTE0IDExLjczNTQgMS4yNzcxMUMxMi4wNTkgMS42MTU1NCAxMi4wODU3IDIuMTQ2NDUgMTEuODE1NyAyLjUxNjY1TDExLjczNDcgMi42MTMzNkw0LjkyMSA5LjcyMzYyQzQuNTk2MjkgMTAuMDYyNSA0LjA4NjY1IDEwLjA4OTYgMy43MzIzMSA5LjgwNTgxTDMuNjM5NzggOS43MjA3TDAuMjYyNDgyIDYuMTY1NTdDLTAuMDg5MzkxIDUuNzk1MTcgLTAuMDg3MjA2MSA1LjE5NjkyIDAuMjY3MzYyIDQuODI5MzNDMC41OTIzODMgNC40OTIzOCAxLjEwMDY4IDQuNDY2MjIgMS40NTQxNyA0Ljc0OTVMMS41NDY0OSA0LjgzNDQzTDQuMjg0MjQgNy43MTU5NEwxMC40NTYzIDEuMjc2MzhaIiBmaWxsPSJ3aGl0ZSIvPgo8L2c+Cjwvc3ZnPgo=");
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    background-position: 50%;
+    display: block;
+    box-sizing: border-box;
+    content: "";
+    border: 0;
+}
+
+#cart-del {
+    position: relative;
+    right: -30%;
+}
+
+.tabs a {
+    flex: 1;
+    box-sizing: border-box;
+    width: 300px;
+    line-height: 48px;
+    text-align: center;
+    color: #454f5b;
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom: 1px solid #346aff;
+    border-radius: 4px 4px 0 0;
+    background-color: #f9fafb;
+    text-decoration: none;
+}
+
+.cart-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+table {
+    width: 60%;
+}
+
+.cart-list-body {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dfe3e8;
+    border-radius: 4px;
+}
+
+.cart-title-mini {
+    margin-left: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--Bluegray-900, #212b36);
+    position: relative;
+    bottom: 1px;
+}
+
+.cart-list-body {
+    width: 100%;
+    border-collapse: collapse;
+    /* 테이블 셀 사이의 보더를 합치는 설정 */
+}
+
+.cart-list-body tr {
+    border-bottom: 1px solid #dfe3e8;
+    /* 각 행의 하단에 경계선 추가 */
+}
+
+.cart-list-body tr:nth-child(2n+1) {
+    border-bottom: none;
+    /* 마지막 행의 하단 경계선 제거 */
+}
+
+.cart-list-body tr:last-child {
+    border-bottom: none;
+    /* 마지막 행의 하단 경계선 제거 */
+}
+
+.cart-list-body td {
+    padding: 10px;
+    /* 셀 패딩 조정 */
+    text-align: left;
+    /* 텍스트 왼쪽 정렬 */
+}
+
+
+
+.cart-total-price {
+
+    border-color: #dfe3e8;
+    flex: 0.98;
+    height: fit-content;
+    padding: 20px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: sticky;
+    top: 10px;
+}
+
+button {
+    width: 100%;
+    font-size: 17px;
+    padding: 0.5em 2em;
+    border: transparent;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    background: dodgerblue;
+    color: white;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(30, 144, 255, 1) 0%, rgba(0, 212, 255, 1) 100%);
+}
+
+/* button:active {
+    transform: translate(0em, 0.2em);
+   } */
+
+/* 섹션영역 끝 */

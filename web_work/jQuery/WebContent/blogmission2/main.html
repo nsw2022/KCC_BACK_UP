@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>블로그 관리</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="blog.js"></script>
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: beige;
+    
+}
+
+#container{
+margin: 0 auto;
+    padding: 20px;
+    width: 1000px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        background-color: #F9F9F9;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="submit"] {
+    width: 96%;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    display: block;
+}
+
+input[type="submit"] {
+    color: #FFF;
+    background-color: #007BFF;
+    border-color: #007BFF;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+#list {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.entry {
+    padding: 15px;
+    border-bottom: 1px solid #EEE;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+h3.term {
+    margin-top: 0;
+    color: #2A2A2A;
+    font-size: 20px;
+}
+
+.definition, .part {
+    color: #595959;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.delete {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.delete:hover {
+    background-color: #c82333;
+}
+
+</style>
+</head>
+<body>
+	<div id=container>	
+    <h1>블로그 관리</h1>
+    <form action="jQuery/blogmission2/server.jsp" method="post">
+        <label>제목:<input type="text" name="title"/></label><br>
+        <label>작성자:<input type="text" name="writer"/></label><br>
+        <label>내용:<input type="text" name="contents"/></label><br>
+        <input type="submit" value="입력"/>
+    </form>
+    <div id="list"></div>
+    </div>
+</body>
+</html>

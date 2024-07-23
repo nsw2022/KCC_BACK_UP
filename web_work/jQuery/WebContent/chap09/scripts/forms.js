@@ -18,13 +18,13 @@ $(function() {
         });
 
         let tax = totalCost * 0.06;
-        let shippingCost = parseInt(totalQuantity / 2) * 1; // 배송 비용 계산 (예: 각 2개 당 1달러)
-        let total = totalCost + tax + shippingCost; // 총합 계산
+        let shippingCost = parseInt(totalQuantity / 2) * 1;
+        let total = totalCost + tax + shippingCost; 
 
         $('.tax .cost').text('$' + tax.toFixed(2));
         $('.subtotal .cost').text('$' + totalCost.toFixed(2));
         $('.shipping .cost').text('$' + shippingCost + '.00');
         $('.shipping .quantity').text(totalQuantity);
-        $('.total .cost').text('$' + total.toFixed(2)); // 총합을 문자열로 변환하여 출력
+        $('.total .cost').text('$' + total.toFixed(2)); 
     });
 });

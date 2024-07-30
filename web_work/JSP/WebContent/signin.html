@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	 <h1>회원 가입</h1>
+    <form action="/Register" method="post">
+        <div>
+            <label for="username">이름:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="email">이메일:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">비밀번호:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <fieldset>
+            <legend>취미 선택 (최대 3개)</legend>
+            <div>
+                <input type="checkbox" id="hobbyReading" name="hobbies" value="Reading">
+                <label for="hobbyReading">독서</label>
+            </div>
+            <div>
+                <input type="checkbox" id="hobbyTraveling" name="hobbies" value="Traveling">
+                <label for="hobbyTraveling">여행</label>
+            </div>
+            <div>
+                <input type="checkbox" id="hobbyCooking" name="hobbies" value="Cooking">
+                <label for="hobbyCooking">요리</label>
+            </div>
+        </fieldset>
+        <button type="submit">회원 가입</button>
+    </form>
+</body>
+</html>

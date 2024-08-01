@@ -20,6 +20,8 @@ public class BoardDao {
 		return dao;
 	}
 	
+	
+	
 	//JNDI 기술을 이용해서 DBCP 구현
 	//DataSource객체(Connection Pool) => JNDI 이름으로  jdbc/oracle
 	public Connection getDBCPConnection() {
@@ -34,6 +36,45 @@ public class BoardDao {
 		}
 		
 		return null;
+	}
+	
+	// 상세보기
+	public Board detailBoard(int seq) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Board board = null;
+		
+		String sql = "select * from board where seq=?";
+		
+		
+		try {
+			conn = getDBCPConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, seq);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				board = new Board();
+				board.setSeq(rs.getInt("seq"));
+				board.setTitle(rs.getString("title"));
+				board.setWriter(rs.getString("writer"));
+				board.setContents(rs.getString("contents"));
+				board.setRegdate(rs.getString("regdate"));
+				board.setHitcount(rs.getInt("hitcount"));
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (Exception e2) {}
+			}
+		}
+		
+		return board;
 	}
 	
 	//글목록 보기
@@ -68,6 +109,11 @@ public class BoardDao {
 			if(pstmt != null) {
 				try {
 					pstmt.close();
+				} catch (Exception e2) {}
+			}
+			if(conn != null) {
+				try {
+					conn.close();
 				} catch (Exception e2) {}
 			}
 		}

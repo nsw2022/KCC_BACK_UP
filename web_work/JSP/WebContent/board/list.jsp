@@ -1,10 +1,11 @@
+<%@page import="kosa.dao.BoardDao2"%>
 <%@page import="kosa.model.Blog"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="kosa.model.Search"%>
 <%@page import="kosa.model.Board"%>
 <%@page import="java.util.List"%>
-<%@page import="kosa.dao.BoardDao2"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>

@@ -27,17 +27,17 @@ public class Register extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 //		
-//		 // ÀÔ·Â µ¥ÀÌÅÍ ¹Ş±â
+//		 // ì…ë ¥ ë°ì´í„° ë°›ê¸°
 //        String username = request.getParameter("username");
 //        String email = request.getParameter("email");
 //        String password = request.getParameter("password");
 //        String[] hobbies = request.getParameterValues("hobbies"); 
 //
-//        // request °´Ã¼¿¡ µ¥ÀÌÅÍ ÀúÀå
+//        // request ê°ì²´ì— ë°ì´í„° ì €ì¥
 //        request.setAttribute("username", username);
 //        request.setAttribute("email", email);
 //        request.setAttribute("password", password);
-//        request.setAttribute("hobbies", hobbies != null ? Arrays.toString(hobbies) : "¼±ÅÃµÈ Ãë¹Ì ¾øÀ½");
+//        request.setAttribute("hobbies", hobbies != null ? Arrays.toString(hobbies) : "ì„ íƒëœ ì·¨ë¯¸ ì—†ìŒ");
 //        RequestDispatcher dispatcher = request.getRequestDispatcher("/result.jsp");
 //        dispatcher.forward(request, response);
 
@@ -45,7 +45,7 @@ public class Register extends HttpServlet {
 //		String email = request.getParameter("email");
 //		String password = request.getParameter("password");
 //		String[] hobbies = request.getParameterValues("hobbies");
-//		String hobbiesAsString = hobbies != null ? String.join(", ", hobbies) : "¼±ÅÃµÈ Ãë¹Ì ¾øÀ½";
+//		String hobbiesAsString = hobbies != null ? String.join(", ", hobbies) : "ì„ íƒëœ ì·¨ë¯¸ ì—†ìŒ";
 //
 //		Member member = new Member(username, email, password, hobbiesAsString);
 //		MemberDao dao = MemberDao.getInstance();

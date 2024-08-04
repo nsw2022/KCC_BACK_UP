@@ -22,10 +22,10 @@ public class BoardDao2 {
 		return dao;
 	}
 	
-	// ±âº»¼³Á¤
+	// ê¸°ë³¸ì„¤ì •
 	public SqlSessionFactory getSqlSessionFactory() {
 		// mybatis-config.xml =>
-		String resource = "mybatis-config.xml";  // È®ÀåÀÚ .xml Ãß°¡
+		String resource = "mybatis-config.xml";  // í™•ì¥ì .xml ì¶”ê°€
 
 		InputStream in = null;
 		try {
@@ -37,7 +37,7 @@ public class BoardDao2 {
 		return new SqlSessionFactoryBuilder().build(in);
 	}
 	
-	// ÀüÃ¼Á¶È¸
+	// ì „ì²´ì¡°íšŒ
 	public List<Board> listBoard(Map	map) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<Board> list = null;
@@ -56,7 +56,7 @@ public class BoardDao2 {
 		return list;
 	}
 	
-	// »ó¼¼Á¶È¸
+	// ìƒì„¸ì¡°íšŒ
 	public Board detailBoard(int seq) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		Board board = null;
@@ -72,7 +72,7 @@ public class BoardDao2 {
 	}
 	
 	
-	// µ¥ÀÌÅÍ »ğÀÔ
+	// ë°ì´í„° ì‚½ì…
 	public int insertBoard(Board board) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = -1;
@@ -93,7 +93,7 @@ public class BoardDao2 {
 		return re;
 	}
 	
-	//µ¥ÀÌÅÍ ¼öÁ¤
+	//ë°ì´í„° ìˆ˜ì •
 	public int modiffy(Board board) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = -1;

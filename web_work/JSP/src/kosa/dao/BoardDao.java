@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 import kosa.model.Board;
 
 public class BoardDao {
-	private static BoardDao dao = new BoardDao();
+private static BoardDao dao = new BoardDao();
 	
 	public static BoardDao getInstance() {
 		return dao;

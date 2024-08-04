@@ -20,9 +20,9 @@ public class HelloServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		System.out.println("¿À±äÇÔ?");
+		System.out.println("ì˜¤ê¸´í•¨?");
 		
-		out.write("<html><head><title>¤¾¤·</title></head>");
+		out.write("<html><head><title>Â¤Â¾Â¤Â·</title></head>");
 	
 		out.write("<h1>Hello Servlet!!!</h1>");
 		out.write("</body></html>");

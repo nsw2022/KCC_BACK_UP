@@ -31,12 +31,12 @@ public class CalsServlet extends HttpServlet {
 		request.setAttribute("result", result);
 		request.setAttribute("name", name);
 		
-		//ÆäÀÌÁöÀÌµ¿
-		// 1.Dispatcher : ±âÁ¸ ¿äÃ»ÀÇ ¿¬Àå¼±(1°³ÀÇ request)
+		//í˜ì´ì§€ì´ë™
+		// 1.Dispatcher : ê¸°ì¡´ ìš”ì²­ì˜ ì—°ì¥ì„ (1ê°œì˜ request)
 		RequestDispatcher re = request.getRequestDispatcher("/result.jsp");
 		re.forward(request, response);
 		
-		// 2. Redirect : ±âÁ¸¿äÃ»°ú ´Ù¸¥ »õ·Î¿î ¿äÃ»À¸·Î ÀÌµ¿
+		// 2. Redirect : ê¸°ì¡´ìš”ì²­ê³¼ ë‹¤ë¥¸ ìƒˆë¡œìš´ ìš”ì²­ìœ¼ë¡œ ì´ë™
 		//response.sendRedirect("result.jsp");
 	}
 

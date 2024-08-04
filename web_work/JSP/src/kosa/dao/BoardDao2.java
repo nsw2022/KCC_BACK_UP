@@ -16,16 +16,16 @@ import kosa.model.Board;
 import kosa.model.Search;
 
 public class BoardDao2 {
-	private static BoardDao2 dao = new BoardDao2();
+private static BoardDao2 dao = new BoardDao2();
 	
 	public static BoardDao2 getInstance() {
 		return dao;
 	}
 	
-	// ê¸°ë³¸ì„¤ì •
+	// ±âº»¼³Á¤
 	public SqlSessionFactory getSqlSessionFactory() {
 		// mybatis-config.xml =>
-		String resource = "mybatis-config.xml";  // í™•ì¥ì .xml ì¶”ê°€
+		String resource = "mybatis-config.xml";  // È®ÀåÀÚ .xml Ãß°¡
 
 		InputStream in = null;
 		try {
@@ -37,7 +37,7 @@ public class BoardDao2 {
 		return new SqlSessionFactoryBuilder().build(in);
 	}
 	
-	// ì „ì²´ì¡°íšŒ
+	// ÀüÃ¼Á¶È¸
 	public List<Board> listBoard(Map	map) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<Board> list = null;
@@ -56,7 +56,7 @@ public class BoardDao2 {
 		return list;
 	}
 	
-	// ìƒì„¸ì¡°íšŒ
+	// »ó¼¼Á¶È¸
 	public Board detailBoard(int seq) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		Board board = null;
@@ -72,7 +72,7 @@ public class BoardDao2 {
 	}
 	
 	
-	// ë°ì´í„° ì‚½ì…
+	// µ¥ÀÌÅÍ »ğÀÔ
 	public int insertBoard(Board board) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = -1;
@@ -93,7 +93,7 @@ public class BoardDao2 {
 		return re;
 	}
 	
-	//ë°ì´í„° ìˆ˜ì •
+	//µ¥ÀÌÅÍ ¼öÁ¤
 	public int modiffy(Board board) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = -1;

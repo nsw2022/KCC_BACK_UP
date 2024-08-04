@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+	<typeAlias type="mission.model.User" alias="User"/>
+		
+		<!-- <typeAlias type="kosa.model.Author" alias="Author" /> -->
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="JNDI">
+				<property name="data_source" value="java:comp/env/jdbc/oracle"/>
+			</dataSource>
+		</environment>		
+	</environments>
+	
+	<mappers>
+		<!-- <mapper resource="kosa/mapper/Board.xml" /> -->
+		<mapper resource="mission/mapper.User.xml" />
+		
+	</mappers>
+	
+</configuration>

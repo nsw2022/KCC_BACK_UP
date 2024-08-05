@@ -6,7 +6,8 @@
 <configuration>
 	<typeAliases>
 		<!-- <typeAlias type="kosa.model.Board" alias="Board" /> -->
-		
+		<typeAlias type="model_p.BoardDTO" alias="Board"/>
+		<typeAlias type="model_p.UsersDTO" alias="Users"/>
 	</typeAliases>
 	
 	<environments default="development">
@@ -19,9 +20,10 @@
 	</environments>
 	
 	<mappers>
-		<!-- <mapper resource="kosa/mapper/Board.xml" /> -->
 		
-		
+		<!-- <mapper resource="kosa/mapper/Blog.xml" /> -->
+		<mapper resource="mapper/Board.xml" />
+		<mapper resource="mapper/Users.xml" />
 	</mappers>
 	
 </configuration>

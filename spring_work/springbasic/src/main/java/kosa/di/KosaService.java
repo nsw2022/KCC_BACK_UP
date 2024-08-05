@@ -1,0 +1,18 @@
+package kosa.di;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class KosaService implements Kosa {
+
+	public void insertService() {
+		System.out.println("Kosa insertService() »Ð");
+
+	}
+
+	public void list() {
+		System.out.println("Kosa list() »Ð");
+
+	}
+
+}

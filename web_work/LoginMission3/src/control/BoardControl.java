@@ -25,7 +25,7 @@ public class BoardControl extends HttpServlet {
 
 	        String serviceStr = request.getRequestURI().substring((request.getContextPath() + "/board/").length());
 	        request.setCharacterEncoding("utf-8");
-	        request.setAttribute("mainPage", serviceStr);  // ¿¹: "board/BList"
+	        request.setAttribute("mainPage", serviceStr); 
 	        request.setAttribute("pd", new PageData(request));
 	        System.out.println(serviceStr);
 	        try {

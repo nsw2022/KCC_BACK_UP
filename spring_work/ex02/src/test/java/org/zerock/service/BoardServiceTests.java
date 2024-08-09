@@ -56,5 +56,7 @@ public class BoardServiceTests {
 //	public void testDelete() {
 //		log.info( "result delete: " + service.remove(4L));
 //	}
+	
+
 
 }

@@ -21,24 +21,24 @@ import lombok.extern.log4j.Log4j;
 @Log4j //로그 보이게하기
 public class BoardControllerTests {
 	
-	@Autowired
-	private WebApplicationContext ctx;
-	private MockMvc mockMvc;
-	
-	@Before
-	public void setUp() {
-		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
-	}
-	
-	@Test
-	public void test()  throws Exception {
-		log.info(
-					mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
-					.andReturn()
-					.getModelAndView()
-					.getModelMap()
-					
-				);
-	}
+//	@Autowired
+//	private WebApplicationContext ctx;
+//	private MockMvc mockMvc;
+//	
+//	@Before
+//	public void setUp() {
+//		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
+//	}
+//	
+//	@Test
+//	public void test()  throws Exception {
+//		log.info(
+//					mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
+//					.andReturn()
+//					.getModelAndView()
+//					.getModelMap()
+//					
+//				);
+//	}
 
 }

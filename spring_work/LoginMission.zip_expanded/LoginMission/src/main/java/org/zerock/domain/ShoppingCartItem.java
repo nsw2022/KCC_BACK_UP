@@ -12,10 +12,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ShoppingCartItem {
-    private String productId;
-    private String productName;
-    private int quantity;
-    private int price;
-    private String imagePath;
-    private Date createdAt;
+    private long cartId;       
+    private String userId;    
+    private String productId;  
+    private String productName; 
+    private int quantity;      
+    private int price;          
+    private Date createdAt;     
+    private String imagePath; 
 }

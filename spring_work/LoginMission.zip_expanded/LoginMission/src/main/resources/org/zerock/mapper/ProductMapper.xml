@@ -15,6 +15,12 @@
             SELECT * FROM product
         ]]>
     </select>
+    
+    <select id="listCart" resultType="org.zerock.domain.ShoppingCartItem">
+    	<![CDATA[
+            SELECT * FROM shopping_cart
+        ]]>
+    </select>
 
 
 

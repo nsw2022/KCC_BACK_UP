@@ -42,6 +42,7 @@
 
 							<td><a class='move' href='<c:out value="${board.bno}"/>'>
 									<c:out value="${board.title}" />
+									 [ <c:out value="${replyCounts[board.bno]}" default="0"/> ]
 							</a></td>
 
 							<td><c:out value="${board.writer}" /></td>

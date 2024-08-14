@@ -24,5 +24,15 @@
 	<context:component-scan base-package="org.zerock.controller" />
 	
 	
-	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding" value="UTF-8" />
+		<!-- 1024 * 1024 * 100 => 100MB -->
+		<beans:property name="maxUploadSize" value="1048575600" />
+		<!-- 1024 * 1024 * 20 => 200MB -->
+		<beans:property name="maxUploadSizePerFile"
+			value="20971520" />
+		<beans:property name="uploadTempDir"
+			value="file:C:\kcc\upload" />
+		<beans:property name="maxInMemorySize" value="10485756" />
+	</beans:bean>
 </beans:beans>

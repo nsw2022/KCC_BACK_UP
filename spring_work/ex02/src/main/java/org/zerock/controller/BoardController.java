@@ -1,5 +1,9 @@
 package org.zerock.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +16,7 @@ import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.PageDTO;
 import org.zerock.service.BoardService;
+import org.zerock.service.ReplyService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -23,6 +28,8 @@ import lombok.extern.log4j.Log4j;
 public class BoardController {
 
 	private BoardService service;
+	
+	private ReplyService replyService;
 
 	@GetMapping("/register")
 	public void register() {
@@ -38,9 +45,16 @@ public class BoardController {
 	@GetMapping("/list")
 	public void list(Criteria cri, Model model) {
 		log.info("list..............");
-		model.addAttribute("list", service.getList(cri));
+		List<BoardVO> list = service.getList(cri);
+		model.addAttribute("list", list);
+		
+		Map<Long, Integer> replyCounts = new HashMap<Long, Integer>();
+	    list.forEach(board -> replyCounts.put(board.getBno(), replyService.countByBno(board.getBno())));
+	    model.addAttribute("replyCounts", replyCounts);
+		
 		//model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		int total = service.getTotal(cri);
+		
 		model.addAttribute("pageMaker",new PageDTO(cri, total));
 	}
 

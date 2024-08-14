@@ -1,6 +1,9 @@
 package org.zerock.service;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
+import org.zerock.domain.ShoppingCartItem;
 import org.zerock.domain.UserVO;
 
 public interface UserService {
@@ -13,4 +16,6 @@ public interface UserService {
 
 	// 로그인
 	UserVO login(@Param("userId") String userId, @Param("userPass") String userPass);
+	
+	
 }

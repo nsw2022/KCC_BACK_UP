@@ -1,4 +1,4 @@
-package org.zerock.user;
+package org.zerock.controller;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 

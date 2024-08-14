@@ -47,4 +47,12 @@ public class ReplyServiceImpl implements ReplyService {
 		return mapper.getListWithPaging(cri, bno);
 	}
 
+	@Override
+	public int countByBno(Long bno) {
+		return mapper.countByBno(bno);
+		
+	}
+	
+	
+
 }

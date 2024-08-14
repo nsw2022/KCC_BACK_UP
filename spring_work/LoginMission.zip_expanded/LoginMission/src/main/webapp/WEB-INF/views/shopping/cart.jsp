@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,6 +44,24 @@
         <div class="cart-list">
             <table>
                 <tbody class="cart-list-body">
+                ${cartItems }
+                   <c:forEach items="${cartItems}" var="item">
+                	      <tr>
+                        <td>
+                            <input type="checkbox" class="inputbox">
+                            <a href="#"><img src="${item.imagePath}" alt="${item.productName}" width="140" height="140" /></a>
+                        </td>
+                        <td>
+                            <div>
+                                <a href="#" style="text-decoration: none; color: black;">${item.productName}</a>
+                            </div>
+                            <div>수량: <input type="number" value="${item.quantity}" min="1"></div>
+                            <div>가격: <span class="price">${item.price}원</span></div>
+                        </td>
+                        <td><a href="#" class="cart-del"><span>삭제</span></a></td>
+                    </tr>
+                
+                </c:forEach>
                     <tr>
                         <td colspan="5">
                             <span>로켓배송 상품</span>

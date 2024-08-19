@@ -13,7 +13,7 @@
 <body>
 <h1>admin Page</h1>
 
-<%-- 
+
 <p>principal : <sec:authentication property="principal"/></p>
 <p>MemberVO : <sec:authentication property="principal.member"/></p>
 <p>사용자이름 : <sec:authentication property="principal.member.userName"/></p>
@@ -22,7 +22,7 @@
 
 
 <a href="/customLogout">Logout</a>
- --%>
+
 
 </body>
 </html>

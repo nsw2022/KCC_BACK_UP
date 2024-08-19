@@ -7,11 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class HelloWorldBean {
-    private String message;
-
-
-}
-
-public class HelloBeans {
+public class HelloWorldBeans {
+    String message;
 }

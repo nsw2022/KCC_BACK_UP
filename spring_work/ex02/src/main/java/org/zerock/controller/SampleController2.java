@@ -16,25 +16,25 @@ import org.zerock.domain.Ticket;
 import lombok.extern.log4j.Log4j;
 
 @RestController
-@RequestMapping("/sample2")
+@RequestMapping("/sample2/*")
 @Log4j
 public class SampleController2 {
     
-    @GetMapping("/all")
-    public String doAll() {
-        log.info("all access");
-        return "Access to all users";
-    }
-    
-    @GetMapping("/member")
-    public String doMember() {
-        log.info("member");
-        return "Access to member";
-    }
-    
-    @GetMapping("/admin")
-    public String doAdmin() {
-        log.info("admin");
-        return "Access to admin";
-    }
+	  @GetMapping("/all")
+	  public void doAll() {
+	    
+	    log.info("do all can access everybody");
+	  }
+	  
+	  @GetMapping("/member")
+	  public void doMember() {
+	    
+	    log.info("member");
+	  }
+	  
+	  @GetMapping("/admin")
+	  public void doAdmin() {
+	    
+	    log.info("admin");
+	  }  
 }

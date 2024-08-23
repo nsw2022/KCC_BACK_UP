@@ -1,5 +1,7 @@
 package com.kcc.security1.config;
 
+import com.kcc.security1.oauth.PrincipalOauth2UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,11 +13,15 @@ import org.springframework.security.config.annotation.web.configurers.HeadersCon
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+
 //시큐리티와 관련된 설정 파일의 역할
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(securedEnabled = true,prePostEnabled = true)
 public class SecurityConfig {
+
+    @Autowired
+    private PrincipalOauth2UserService principalOauth2UserService;
 
     private static final String[] WHITE_LIST = {
             "/",
@@ -49,7 +55,11 @@ public class SecurityConfig {
                         .loginPage("/loginForm") // 사용자 정의 로그인 페이지 설정
                         .loginProcessingUrl("/login") // 사용자 정의 로그인 매핑 설정
                         .defaultSuccessUrl("/main") // 로그인 후 갈 페이지 설정
+                ).oauth2Login(oauth2Login->oauth2Login.loginPage("/loginForm")
+                        .userInfoEndpoint(userInfoEndpointConfig ->
+                                                                                userInfoEndpointConfig.userService(principalOauth2UserService))
                 );
+
         return http.build();
     }
 }

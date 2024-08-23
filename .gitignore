@@ -360,4 +360,6 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
+*.yaml
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,git,macos,java,maven,eclipse,intellij,gradle,netbeans,visualstudiocode

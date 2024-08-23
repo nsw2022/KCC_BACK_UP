@@ -15,10 +15,12 @@
     <br>
     <input type="password" name="password" placeholder="password">
     <br>
-    <a href="/joinForm">회원가입</a>
+
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >
     <button>로그인</button>
 </form>
 
+<a href="/oauth2/authorization/google">구글로그인</a>
+<a href="/joinForm">회원가입</a>
 </body>
 </html>
